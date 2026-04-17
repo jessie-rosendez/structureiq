@@ -181,6 +181,7 @@ def _generate_with_retry(
                         response_mime_type="application/json",
                         temperature=0.1,
                     ),
+                    request_options=genai_types.RequestOptions(timeout=45),
                 )
             except ClientError as exc:
                 status_code = getattr(exc, "status_code", None)
