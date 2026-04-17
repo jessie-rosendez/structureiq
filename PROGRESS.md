@@ -33,7 +33,7 @@
 - [x] `requirements.txt` + `Dockerfile` written
 - [x] Frontend built (Next.js 14, TypeScript, Tailwind) — upload, query, report pages
 - [x] Cloud Build trigger (`structureiq-main-deploy`) — auto-deploys backend on every push to `main`
-- [x] Backend deployed to Cloud Run — revision `structureiq-backend-00007-2s9`, image `2a71e90`
+- [x] Backend deployed to Cloud Run — auto-deployed via Cloud Build on every push to `main` (check current revision in GCP console)
 - [x] Frontend deployed to Vercel — `frontend-phi-five-58.vercel.app`
 - [x] `NEXT_PUBLIC_API_URL` set in Vercel dashboard and baked into production build
 - [x] End-to-end verified in production: upload PDF → query → full 10-standard compliance report
