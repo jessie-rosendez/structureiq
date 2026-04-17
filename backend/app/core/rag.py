@@ -131,7 +131,7 @@ def _generate_with_retry(
                         "Update GEMINI_MODEL to a currently supported Vertex model, such as "
                         "`gemini-2.5-flash`."
                     ) from exc
-                if status_code != 429:
+                if status_code not in (429, 500, 503):
                     raise
 
                 last_429 = exc
