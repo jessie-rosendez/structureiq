@@ -1,0 +1,332 @@
+{
+  "standard": "OSHA 29 CFR Part 1926 — Construction Industry Safety",
+  "version": "Current (2024)",
+  "source": "https://www.osha.gov/construction",
+  "legal_status": "Public domain (U.S. federal regulation)",
+  "sections": [
+    {
+      "section_id": "1926.20(b)(1)",
+      "title": "General Safety and Health Provisions — Initiating Programs",
+      "category": "general_safety",
+      "requirement": "It shall be the responsibility of the employer to initiate and maintain such programs as may be necessary to comply with this part. It shall be the responsibility of the employer to provide a place of employment that is free from recognized hazards.",
+      "keywords": ["safety program", "employer responsibility", "hazard free", "safety plan"],
+      "applies_to": ["all_construction"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "1926.25(a)",
+      "title": "Housekeeping",
+      "category": "housekeeping",
+      "requirement": "During the course of construction, alteration, or repairs, form and scrap lumber with protruding nails, and all other debris, shall be kept cleared from work areas, passageways, and stairs in and around buildings or other structures.",
+      "keywords": ["housekeeping", "debris", "scrap lumber", "nails", "passageways", "work area cleanliness"],
+      "applies_to": ["all_construction"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "1926.50(a)",
+      "title": "Medical Services and First Aid",
+      "category": "medical",
+      "requirement": "The employer shall ensure the availability of medical personnel for advice and consultation on matters of occupational health. In the absence of an infirmary, clinic, hospital, or physician that is reasonably accessible in terms of time and distance, a person who has a valid certificate in first-aid training shall be available at the worksite to render first aid.",
+      "keywords": ["first aid", "medical personnel", "first aid kit", "emergency medical", "certified first aider"],
+      "applies_to": ["all_construction"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "1926.51(a)(1)",
+      "title": "Sanitation — Potable Water",
+      "category": "sanitation",
+      "requirement": "An adequate supply of potable water shall be provided on the job. The use of a common drinking cup is prohibited. Single-use cups in sanitary containers with disposal facilities shall be provided.",
+      "keywords": ["potable water", "drinking water", "sanitation", "common cup", "single use cup"],
+      "applies_to": ["all_construction"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "1926.51(c)(1)",
+      "title": "Sanitation — Toilets",
+      "category": "sanitation",
+      "requirement": "Adequate toilet facilities shall be provided for employees engaged in construction work. Toilets shall be provided according to the following ratios: 20 or fewer employees — 1 toilet; 20 or more employees — 1 toilet seat and 1 urinal per 40 workers.",
+      "keywords": ["toilet facilities", "sanitation", "portable toilet", "restroom", "workers"],
+      "applies_to": ["all_construction"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "1926.95(a)",
+      "title": "Personal Protective Equipment — Criteria for PPE",
+      "category": "ppe",
+      "requirement": "Protective equipment, including personal protective equipment for eyes, face, head, and extremities, protective clothing, respiratory devices, and protective shields and barriers, shall be provided, used, and maintained in a sanitary and reliable condition wherever it is necessary.",
+      "keywords": ["PPE", "personal protective equipment", "hard hat", "eye protection", "safety equipment"],
+      "applies_to": ["all_construction"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "1926.100(a)",
+      "title": "Head Protection — Hard Hats",
+      "category": "ppe",
+      "requirement": "Employees working in areas where there is a possible danger of head injury from impact, or from falling or flying objects, or from electrical shock and burns, shall be protected by protective helmets. Helmets shall meet ANSI Z89.1 requirements.",
+      "keywords": ["hard hat", "helmet", "head protection", "ANSI Z89.1", "falling objects"],
+      "applies_to": ["all_construction"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "1926.102(a)(1)",
+      "title": "Eye and Face Protection",
+      "category": "ppe",
+      "requirement": "Employees shall be provided with eye and face protection equipment when machines or operations present potential eye or face injury from physical, chemical, or radiation agents. Equipment shall meet ANSI Z87.1 requirements.",
+      "keywords": ["eye protection", "safety glasses", "face shield", "ANSI Z87.1", "goggles"],
+      "applies_to": ["all_construction"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "1926.150(a)(1)",
+      "title": "Fire Protection — General",
+      "category": "fire_protection",
+      "requirement": "The employer shall be responsible for the development of a fire protection program to be followed throughout all phases of the construction and demolition work, and shall provide for the firefighting equipment as specified in this subpart.",
+      "keywords": ["fire protection", "fire safety plan", "firefighting equipment", "fire extinguisher", "fire program"],
+      "applies_to": ["all_construction"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "1926.150(c)(1)(i)",
+      "title": "Fire Extinguishers — 5 lb Rating",
+      "category": "fire_protection",
+      "requirement": "A fire extinguisher, rated not less than 2A, shall be provided for each 3,000 square feet of the protected building area, or major fraction thereof. Travel distance from any point of the protected area to the nearest fire extinguisher shall not exceed 100 feet.",
+      "keywords": ["fire extinguisher", "2A rating", "3000 sq ft", "100 feet", "travel distance"],
+      "applies_to": ["all_construction"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "1926.200(b)(1)",
+      "title": "Accident Prevention Signs — Danger Signs",
+      "category": "signs_signals",
+      "requirement": "Danger signs shall be used only where an immediate hazard exists. Danger signs shall be red as the predominating color for the upper panel; black outline on the borders; and a white lower panel for additional sign wording.",
+      "keywords": ["danger sign", "warning sign", "safety sign", "red sign", "hazard sign"],
+      "applies_to": ["all_construction"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "1926.251(a)(1)",
+      "title": "Rigging Equipment for Material Handling",
+      "category": "rigging",
+      "requirement": "Rigging equipment for material handling shall be inspected prior to use on each shift and as necessary during its use to ensure that it is safe. Defective rigging equipment shall be removed from service.",
+      "keywords": ["rigging", "hoisting", "lifting equipment", "sling", "inspection", "material handling"],
+      "applies_to": ["all_construction"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "1926.300(b)(1)",
+      "title": "Tools — Guards",
+      "category": "tools_equipment",
+      "requirement": "When power-operated tools are designed to accommodate guards, they shall be equipped with such guards when in use. All hand tools shall be used only for the purpose for which designed.",
+      "keywords": ["tool guard", "power tool", "blade guard", "tool safety", "guard"],
+      "applies_to": ["all_construction"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "1926.350(a)(9)",
+      "title": "Gas Welding and Cutting — Hose Protection",
+      "category": "welding",
+      "requirement": "When parallel sections of oxygen and fuel gas hoses are taped together for convenience and to prevent tangling, not more than 4 inches out of 12 inches shall be covered by tape.",
+      "keywords": ["welding", "cutting", "gas hose", "oxygen", "fuel gas", "tape"],
+      "applies_to": ["all_construction"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "1926.400(a)",
+      "title": "Electrical — Scope",
+      "category": "electrical",
+      "requirement": "The requirements of this subpart shall apply to the construction of electric transmission and distribution lines and equipment. The employer shall provide either ground-fault circuit interrupter protection for personnel, or an assured equipment grounding conductor program on construction sites.",
+      "keywords": ["electrical", "GFCI", "ground fault", "electrical safety", "construction electrical"],
+      "applies_to": ["all_construction"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "1926.403(b)(1)(i)",
+      "title": "Electrical — Guarding of Live Parts",
+      "category": "electrical",
+      "requirement": "Except as required or permitted elsewhere in this subpart, live parts of electric equipment operating at 50 volts or more shall be guarded against accidental contact by approved cabinets or other forms of approved enclosures.",
+      "keywords": ["live parts", "electrical guarding", "50 volts", "enclosure", "electrical panel", "cabinet"],
+      "applies_to": ["all_construction"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "1926.416(a)(1)",
+      "title": "Electrical — Safe Use of Equipment",
+      "category": "electrical",
+      "requirement": "No employer shall permit an employee to work in such proximity to any part of an electric power circuit that the employee could contact the electric power circuit in the course of work, unless the employee is protected against electric shock by deenergizing the circuit and grounding it or by guarding it effectively by insulation or other means.",
+      "keywords": ["electrical safety", "power circuit", "deenergize", "lockout", "electric shock", "insulation"],
+      "applies_to": ["all_construction"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "1926.451(a)(1)",
+      "title": "Scaffolding — Capacity",
+      "category": "scaffolding",
+      "requirement": "Each scaffold and scaffold component shall be capable of supporting, without failure, its own weight and at least 4 times the maximum intended load applied or transmitted to it.",
+      "keywords": ["scaffold", "scaffold capacity", "4 times load", "scaffold weight", "scaffold safety"],
+      "applies_to": ["all_construction"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "1926.451(b)(1)",
+      "title": "Scaffolding — Platform Construction",
+      "category": "scaffolding",
+      "requirement": "Each platform on all working levels of scaffolds shall be fully planked or decked between the front uprights and the guardrail supports. Scaffold platforms shall be at least 18 inches wide.",
+      "keywords": ["scaffold platform", "scaffold planking", "18 inch", "scaffold deck", "working platform"],
+      "applies_to": ["all_construction"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "1926.451(e)(1)",
+      "title": "Scaffolding — Access",
+      "category": "scaffolding",
+      "requirement": "When scaffold platforms are more than 2 feet above or below a point of access, portable ladders, hook-on ladders, attachable ladders, stair towers, stairway-type ladders, ramps, walkways, integral prefabricated scaffold access, or direct access from another scaffold, structure, personnel hoist, or similar surface shall be used.",
+      "keywords": ["scaffold access", "scaffold ladder", "scaffold stairs", "2 feet", "scaffold entry"],
+      "applies_to": ["all_construction"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "1926.451(g)(1)",
+      "title": "Scaffolding — Fall Protection",
+      "category": "scaffolding",
+      "requirement": "Each employee on a scaffold more than 10 feet above a lower level shall be protected from falling to that lower level. Fall protection shall consist of personal fall arrest systems or guardrail systems meeting the requirements of paragraphs (g)(3) and (g)(4).",
+      "keywords": ["scaffold fall protection", "10 feet", "guardrail", "fall arrest", "scaffold safety"],
+      "applies_to": ["all_construction"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "1926.502(b)(1)",
+      "title": "Fall Protection — Guardrail Systems",
+      "category": "fall_protection",
+      "requirement": "Top edge height of top rails, or equivalent guardrail system members, shall be 42 inches (plus or minus 3 inches) above the walking/working level. Midrails shall be installed at a height midway between the top edge of the guardrail system and the walking/working level surface.",
+      "keywords": ["guardrail", "42 inch", "top rail", "midrail", "fall protection", "guardrail height"],
+      "applies_to": ["all_construction"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "1926.502(b)(3)",
+      "title": "Fall Protection — Guardrail Strength",
+      "category": "fall_protection",
+      "requirement": "Guardrail systems shall be capable of withstanding, without failure, a force of at least 200 pounds applied within 2 inches of the top edge, in any outward or downward direction, at any point along the top edge.",
+      "keywords": ["guardrail strength", "200 pounds", "guardrail load", "top rail strength", "fall protection"],
+      "applies_to": ["all_construction"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "1926.502(d)(16)",
+      "title": "Fall Protection — Personal Fall Arrest Systems",
+      "category": "fall_protection",
+      "requirement": "Personal fall arrest systems shall be rigged such that an employee can neither free fall more than 6 feet, nor contact any lower level. Body harnesses must meet ANSI Z359.1. Lanyards and lifelines must have a minimum breaking strength of 5,000 pounds.",
+      "keywords": ["fall arrest", "harness", "lanyard", "6 feet", "5000 pounds", "lifeline", "ANSI Z359"],
+      "applies_to": ["all_construction"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "1926.502(j)(1)",
+      "title": "Fall Protection — Safety Nets",
+      "category": "fall_protection",
+      "requirement": "Safety nets shall be installed as close as practicable under the walking/working surface on which employees are working, but in no case more than 30 feet below such level. Defective nets shall not be used.",
+      "keywords": ["safety net", "fall protection", "30 feet", "net installation", "construction net"],
+      "applies_to": ["all_construction"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "1926.503(a)(1)",
+      "title": "Fall Protection — Training",
+      "category": "fall_protection",
+      "requirement": "The employer shall provide a training program for each employee who might be exposed to fall hazards. The program shall enable each employee to recognize the hazards of falling and shall train each employee in the procedures to be followed in order to minimize these hazards.",
+      "keywords": ["fall protection training", "training program", "fall hazards", "employee training"],
+      "applies_to": ["all_construction"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "1926.550(a)(1)",
+      "title": "Cranes and Derricks — Rated Loads",
+      "category": "cranes",
+      "requirement": "Whenever machinery or equipment is operated, only competent persons shall operate such equipment. Rated load capacities, and recommended operating speeds, special hazard warnings, or instruction, shall be conspicuously posted on all equipment at the operator's station.",
+      "keywords": ["crane", "rated load", "crane capacity", "crane operator", "equipment rating"],
+      "applies_to": ["all_construction"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "1926.600(a)(1)",
+      "title": "Motor Vehicles — All Terrain and Earth-moving Equipment",
+      "category": "vehicles",
+      "requirement": "All equipment left unattended at night, adjacent to a highway in normal use, or adjacent to construction areas where work is in progress, shall have appropriate lights or reflectors, or barricades equipped with appropriate lights or reflectors, to identify the location of the equipment.",
+      "keywords": ["equipment lighting", "night work", "barricade", "reflectors", "unattended equipment"],
+      "applies_to": ["all_construction"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "1926.651(a)",
+      "title": "Excavations — Surface Encumbrances",
+      "category": "excavations",
+      "requirement": "All surface encumbrances that are located so as to create a hazard to employees shall be removed or supported, as necessary, to safeguard employees.",
+      "keywords": ["excavation", "surface hazard", "trenching", "grading", "utility lines"],
+      "applies_to": ["all_construction"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "1926.652(a)(1)",
+      "title": "Excavations — Protective Systems",
+      "category": "excavations",
+      "requirement": "Each employee in an excavation shall be protected from cave-ins by an adequate protective system designed in accordance with paragraph (b) or (c) of this section. Excavations made entirely in stable rock are exempt.",
+      "keywords": ["excavation cave-in", "trench safety", "protective system", "shoring", "sloping", "benching"],
+      "applies_to": ["all_construction"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "1926.701(b)",
+      "title": "Concrete and Masonry — Protruding Rebar",
+      "category": "concrete_masonry",
+      "requirement": "All protruding reinforcing steel, onto and into which employees could fall, shall be guarded to eliminate the hazard of impalement.",
+      "keywords": ["rebar", "reinforcing steel", "impalement hazard", "protruding rebar", "rebar cap"],
+      "applies_to": ["all_construction"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "1926.702(a)(1)",
+      "title": "Concrete and Masonry — Equipment Requirements",
+      "category": "concrete_masonry",
+      "requirement": "Bulk cement storage bins, containers, and compartments shall be equipped with a conical or tapered bottom section to facilitate the flow of cement.",
+      "keywords": ["cement storage", "concrete equipment", "bulk cement", "storage bin"],
+      "applies_to": ["all_construction"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "1926.760(a)(1)",
+      "title": "Steel Erection — Fall Protection",
+      "category": "steel_erection",
+      "requirement": "Each employee engaged in a steel erection activity who is on a walking/working surface with an unprotected side or edge more than 15 feet above a lower level shall be protected from fall hazards by guardrail systems, safety net systems, personal fall arrest systems, positioning device systems, or fall restraint systems.",
+      "keywords": ["steel erection", "fall protection", "15 feet", "iron worker", "structural steel"],
+      "applies_to": ["all_construction"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "1926.1053(a)(1)",
+      "title": "Ladders — Load Ratings",
+      "category": "ladders",
+      "requirement": "Ladders shall be capable of supporting the following loads without failure: each self-supporting portable ladder — at least four times the maximum intended load; each non-self-supporting portable ladder — at least four times the maximum intended load; each fixed ladder — at least two concentrated loads of 250 pounds each.",
+      "keywords": ["ladder load", "ladder safety", "ladder rating", "4 times load", "fixed ladder"],
+      "applies_to": ["all_construction"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "1926.1053(b)(1)",
+      "title": "Ladders — Extension Above Landing",
+      "category": "ladders",
+      "requirement": "When portable ladders are used for access to an upper landing surface, the ladder side rails shall extend at least 3 feet (0.9 m) above the upper landing surface to which the ladder is used to gain access.",
+      "keywords": ["ladder extension", "3 feet", "landing surface", "ladder top", "roof access"],
+      "applies_to": ["all_construction"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "1926.1053(b)(4)",
+      "title": "Ladders — Angle of Inclination",
+      "category": "ladders",
+      "requirement": "Non-self-supporting ladders shall be used at an angle such that the horizontal distance from the top support to the foot of the ladder is approximately one-quarter of the working length of the ladder (the 4:1 rule — for every 4 feet of ladder height, move the base out 1 foot).",
+      "keywords": ["ladder angle", "4:1 rule", "ladder inclination", "ladder base", "ladder setup"],
+      "applies_to": ["all_construction"],
+      "severity": "REQUIRED"
+    }
+  ]
+}

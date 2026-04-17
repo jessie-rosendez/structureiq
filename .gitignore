@@ -1,0 +1,52 @@
+# Credentials — NEVER commit
+backend/credentials.json
+**/*.key
+**/*.json.key
+*.pem
+*.p12
+
+# Environment files
+backend/.env
+.env
+.env.local
+.env.*.local
+!.env.example
+!.env.local.example
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.eggs/
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Node / Next.js
+node_modules/
+.next/
+out/
+frontend/.next/
+frontend/node_modules/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Uploads / temp
+backend/uploads/
+*.tmp

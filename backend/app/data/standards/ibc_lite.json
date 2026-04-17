@@ -1,0 +1,225 @@
+{
+  "standard": "International Building Code (IBC) — Key Requirements",
+  "version": "2021",
+  "source": "Manually structured from IBC 2021 Chapters 3, 9, 10, 11 — key requirements only, no verbatim copy of paywalled content",
+  "legal_status": "Manually structured summary — not a reproduction of ICC copyrighted text",
+  "chapters_included": [3, 9, 10, 11],
+  "sections": [
+    {
+      "section_id": "IBC-302.1",
+      "title": "Occupancy Classification — General",
+      "category": "occupancy",
+      "requirement": "Buildings and structures shall be classified based on the character of their occupancy. Occupancy groups: A (Assembly), B (Business), E (Educational), F (Factory/Industrial), H (High Hazard), I (Institutional), M (Mercantile), R (Residential), S (Storage), U (Utility/Miscellaneous).",
+      "keywords": ["occupancy classification", "occupancy group", "building use", "assembly", "residential", "business"],
+      "applies_to": ["all_buildings"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "IBC-303.1",
+      "title": "Assembly Occupancy — Group A",
+      "category": "occupancy",
+      "requirement": "Assembly Group A occupancy includes uses of a building or structure for the gathering of persons for purposes such as civic, social, or religious functions; recreation; food or drink consumption; or awaiting transportation. Spaces with occupant load of 50 or more persons shall be classified as Group A.",
+      "keywords": ["assembly occupancy", "Group A", "gathering", "50 persons", "restaurant", "theater", "church"],
+      "applies_to": ["assembly"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "IBC-310.4",
+      "title": "Residential Occupancy — Group R-2",
+      "category": "occupancy",
+      "requirement": "Residential occupancies containing sleeping units or more than two dwelling units where the occupants are primarily permanent in nature, including apartment houses, boarding houses (not transient), condominiums, dormitories, fraternity and sorority houses, monasteries, convents, vacation timeshare properties and congregate living facilities shall be classified as Group R-2.",
+      "keywords": ["residential", "R-2", "apartment", "multi-family", "dwelling units", "occupancy"],
+      "applies_to": ["residential"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "IBC-903.2",
+      "title": "Automatic Sprinkler Systems — Where Required",
+      "category": "fire_protection",
+      "requirement": "Approved automatic sprinkler systems shall be provided in new buildings and structures in all occupancies as specified in Sections 903.2.1 through 903.2.12. Group R occupancies: sprinklers required throughout when building has three or more stories, or more than two dwelling units per floor.",
+      "keywords": ["sprinkler system", "automatic sprinkler", "fire suppression", "NFPA 13", "fire protection"],
+      "applies_to": ["all_buildings"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "IBC-903.3.1.1",
+      "title": "Sprinkler Systems — NFPA 13 Standard",
+      "category": "fire_protection",
+      "requirement": "Automatic sprinkler systems shall be designed and installed in accordance with NFPA 13. The system shall be designed by a qualified person registered by the state. Hydraulic calculations or pipe schedule methods shall be used per NFPA 13.",
+      "keywords": ["NFPA 13", "sprinkler design", "hydraulic calculations", "sprinkler installation", "fire sprinkler"],
+      "applies_to": ["all_buildings"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "IBC-903.3.1.2",
+      "title": "Sprinkler Systems — NFPA 13R (Residential)",
+      "category": "fire_protection",
+      "requirement": "Residential occupancies up to and including four stories in height shall be permitted to use sprinkler systems designed and installed in accordance with NFPA 13R.",
+      "keywords": ["NFPA 13R", "residential sprinkler", "4 stories", "sprinkler system", "low-rise residential"],
+      "applies_to": ["residential"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "IBC-905.3.1",
+      "title": "Standpipe Systems — Building Height",
+      "category": "fire_protection",
+      "requirement": "Class I automatic wet standpipe systems shall be provided in buildings with floors used for human occupancy located more than 30 feet above the lowest level of fire department vehicle access, or more than 4 stories above grade plane.",
+      "keywords": ["standpipe", "Class I standpipe", "30 feet", "4 stories", "fire department access"],
+      "applies_to": ["all_buildings"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "IBC-907.2",
+      "title": "Fire Alarm Systems — Where Required",
+      "category": "fire_alarm",
+      "requirement": "Fire alarm systems shall be installed and maintained in accordance with NFPA 72. Required in: Group A with occupant load of 300 or more; Group B with more than 100 occupants; Group E schools; Group I (all); Group R-1, R-2 with more than two dwelling units; and all high-rise buildings.",
+      "keywords": ["fire alarm", "smoke detector", "NFPA 72", "fire detection", "alarm system", "occupant notification"],
+      "applies_to": ["all_buildings"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "IBC-907.2.11.2",
+      "title": "Fire Alarm — Single and Multi-Station Smoke Alarms",
+      "category": "fire_alarm",
+      "requirement": "Single and multiple-station smoke alarms shall be installed in all dwelling units, sleeping units, and hotel rooms. Alarms shall be installed outside each sleeping area in the immediate vicinity of bedrooms, in each bedroom, on each story, and in the basement.",
+      "keywords": ["smoke alarm", "smoke detector", "bedroom", "sleeping area", "dwelling unit", "hotel room"],
+      "applies_to": ["residential"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "IBC-1004.1",
+      "title": "Means of Egress — Occupant Load",
+      "category": "egress",
+      "requirement": "The number of occupants shall be computed at the rate of one occupant per unit of area as prescribed in Table 1004.5. Where occupants from accessory areas egress through a primary space, the combined occupant load shall be applied.",
+      "keywords": ["occupant load", "egress calculation", "occupancy load", "exit capacity", "egress width"],
+      "applies_to": ["all_buildings"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "IBC-1006.3.3",
+      "title": "Means of Egress — Number of Exits",
+      "category": "egress",
+      "requirement": "Two exits or exit access doorways from any space shall be provided where the occupant load exceeds the values in Table 1006.3.3. Generally: assembly/mercantile/business over 49 occupants require 2 exits; over 499 require 3 exits; over 999 require 4 exits.",
+      "keywords": ["number of exits", "exit requirement", "two exits", "three exits", "egress", "occupant load"],
+      "applies_to": ["all_buildings"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "IBC-1009.1",
+      "title": "Accessible Means of Egress — General",
+      "category": "egress",
+      "requirement": "Accessible means of egress shall comply with this section. Accessible spaces shall be provided with not less than one accessible means of egress. Where more than one means of egress is required, not less than two accessible means of egress shall be provided.",
+      "keywords": ["accessible egress", "accessible means of egress", "wheelchair", "ADA egress", "area of rescue"],
+      "applies_to": ["all_buildings"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "IBC-1010.1.9.2",
+      "title": "Doors — Hardware (Panic and Fire Exit)",
+      "category": "egress_doors",
+      "requirement": "Doors serving a Group A or E occupancy with an occupant load of 50 or more and any occupancy with an occupant load of 100 or more shall not be provided with a latch or lock unless it is panic hardware or fire exit hardware.",
+      "keywords": ["panic hardware", "exit device", "push bar", "fire exit hardware", "egress door", "latch"],
+      "applies_to": ["assembly", "educational", "high_occupancy"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "IBC-1011.1",
+      "title": "Stairways — General",
+      "category": "stairs",
+      "requirement": "Stairways serving occupied portions of a building shall comply with the requirements of this section. Interior stairways shall be enclosed with fire-resistive construction as required by Table 1020.1.",
+      "keywords": ["stairway", "stairs", "stair enclosure", "interior stairs", "fire resistive", "exit stair"],
+      "applies_to": ["all_buildings"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "IBC-1011.5.2",
+      "title": "Stairways — Riser Height and Tread Depth",
+      "category": "stairs",
+      "requirement": "Stair riser heights shall be 7 inches maximum and 4 inches minimum. Stair treads shall have a minimum depth of 11 inches. The greatest riser height within any flight of stairs shall not exceed the smallest by more than 3/8 inch.",
+      "keywords": ["stair riser", "stair tread", "7 inch", "11 inch", "riser height", "tread depth"],
+      "applies_to": ["all_buildings"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "IBC-1011.11",
+      "title": "Stairways — Handrails",
+      "category": "stairs",
+      "requirement": "Handrails shall be provided on not less than one side of each flight of stairs with four or more risers. Handrails shall be mounted between 34 and 38 inches measured vertically above the stair nosing. Handrails shall be continuous for the full length of the flight.",
+      "keywords": ["stair handrail", "34 inch", "38 inch", "four risers", "handrail height", "continuous handrail"],
+      "applies_to": ["all_buildings"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "IBC-1012.1",
+      "title": "Guards — Where Required",
+      "category": "guards",
+      "requirement": "Guards shall be located along open-sided walking surfaces, including mezzanines, equipment platforms, stairs, ramps, and landings that are located more than 30 inches measured vertically to the floor or grade below.",
+      "keywords": ["guard", "guardrail", "30 inches", "open side", "mezzanine", "walking surface"],
+      "applies_to": ["all_buildings"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "IBC-1012.3",
+      "title": "Guards — Height",
+      "category": "guards",
+      "requirement": "Required guards shall not be less than 42 inches high, with the exception of guards at the open sides of stairs, which shall not be less than 34 inches.",
+      "keywords": ["guard height", "42 inch", "34 inch", "guardrail height", "stair guard"],
+      "applies_to": ["all_buildings"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "IBC-1014.2",
+      "title": "Exit Access Travel Distance",
+      "category": "egress",
+      "requirement": "Exit access travel distance shall not exceed the values given in Table 1017.2. Without sprinklers: Group B — 200 ft, Group R — 125 ft, Group A — 200 ft. With sprinklers: Group B — 300 ft, Group R — 200 ft, Group A — 250 ft.",
+      "keywords": ["travel distance", "exit access", "200 feet", "300 feet", "egress distance", "exit travel"],
+      "applies_to": ["all_buildings"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "IBC-1020.1",
+      "title": "Exit Enclosures — Construction",
+      "category": "egress",
+      "requirement": "Exit enclosures shall be constructed with fire barriers complying with Section 707 or horizontal assemblies complying with Section 711, or both. Fire-resistance rating: 2 hours for buildings with four or more stories; 1 hour for other exit enclosures.",
+      "keywords": ["exit enclosure", "fire barrier", "2 hour rating", "1 hour rating", "stair shaft", "exit stair construction"],
+      "applies_to": ["all_buildings"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "IBC-1101.1",
+      "title": "Accessibility — Scope",
+      "category": "accessibility",
+      "requirement": "Buildings and facilities shall be designed and constructed to be accessible in accordance with this code and ICC A117.1. Accessibility shall be provided for buildings and facilities that are newly constructed or altered.",
+      "keywords": ["accessibility", "accessible design", "ICC A117.1", "ADA compliance", "accessible construction"],
+      "applies_to": ["all_buildings"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "IBC-1103.2.1",
+      "title": "Accessibility — Employee Work Areas",
+      "category": "accessibility",
+      "requirement": "Spaces and elements within employee work areas shall be designed and constructed so that individuals with disabilities can approach, enter, and exit the spaces. Work areas shall have accessible common use circulation paths within the area.",
+      "keywords": ["employee work area", "accessible workplace", "circulation path", "employee accessibility"],
+      "applies_to": ["commercial", "business"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "IBC-1104.1",
+      "title": "Accessible Route — Required",
+      "category": "accessibility",
+      "requirement": "At least one accessible route shall connect accessible building or facility entrances with all accessible spaces, elements, and facilities required to be accessible within the building or facility. Accessible routes shall comply with ICC A117.1.",
+      "keywords": ["accessible route", "ICC A117.1", "accessible entrance", "accessible path", "wheelchair route"],
+      "applies_to": ["all_buildings"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "IBC-1107.6.1.1",
+      "title": "Dwelling Units — Type A",
+      "category": "accessibility",
+      "requirement": "In occupancies other than Group R-3, at least 2 percent but not less than one of the dwelling units shall be a Type A unit complying with ICC A117.1. All Group R-2 occupancies with 20 or more dwelling units shall have Type A units.",
+      "keywords": ["Type A dwelling", "accessible dwelling", "R-2", "2 percent", "ICC A117.1", "accessible unit"],
+      "applies_to": ["residential"],
+      "severity": "REQUIRED"
+    }
+  ]
+}

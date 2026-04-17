@@ -1,0 +1,305 @@
+{
+  "standard": "ADA Standards for Accessible Design",
+  "version": "2010",
+  "source": "https://www.ada.gov/law-and-regs/design-standards/",
+  "legal_status": "Public domain",
+  "sections": [
+    {
+      "section_id": "202.4",
+      "title": "Alterations — Path of Travel",
+      "category": "accessibility",
+      "requirement": "When a primary function area is altered, the path of travel to that area and the restrooms, telephones, and drinking fountains serving the area shall be made accessible to the extent that the cost of alterations to the path of travel is not disproportionate to the cost of the overall alteration.",
+      "keywords": ["alteration", "path of travel", "primary function area", "accessible route"],
+      "applies_to": ["commercial", "public", "alteration"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "206.2.1",
+      "title": "Accessible Routes — Site Arrival Points",
+      "category": "accessibility",
+      "requirement": "At least one accessible route shall be provided within the site from accessible parking spaces and accessible passenger loading zones; public streets and sidewalks; and public transportation stops to the accessible building or facility entrance they serve.",
+      "keywords": ["accessible route", "site", "parking", "entrance", "sidewalk"],
+      "applies_to": ["commercial", "residential", "public"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "206.2.3",
+      "title": "Accessible Routes — Multi-Story Buildings",
+      "category": "accessibility",
+      "requirement": "At least one accessible route shall connect each accessible story and mezzanine in multi-story buildings and facilities. Exceptions apply for buildings with fewer than three stories or fewer than 3000 sq ft per story if no elevator is required.",
+      "keywords": ["multi-story", "elevator", "accessible route", "mezzanine", "floor"],
+      "applies_to": ["commercial", "public"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "206.4",
+      "title": "Accessible Entrances",
+      "category": "accessibility",
+      "requirement": "At least 60 percent of all public entrances shall be accessible. At least one accessible entrance shall be provided to each tenancy in a facility.",
+      "keywords": ["entrance", "accessible entrance", "public entrance", "tenancy"],
+      "applies_to": ["commercial", "public"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "206.6",
+      "title": "Elevators",
+      "category": "accessibility",
+      "requirement": "Elevators shall serve each story and mezzanine in facilities. Where a building or facility has four or more stories above or below grade, at least one elevator shall comply with Section 407.",
+      "keywords": ["elevator", "multi-story", "four stories", "vertical access"],
+      "applies_to": ["commercial", "public"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "207.1",
+      "title": "Accessible Means of Egress",
+      "category": "egress",
+      "requirement": "Accessible means of egress shall be provided in accordance with Section 1003.2.13 of the International Fire Code. Where more than one means of egress is required by the Life Safety Code or local equivalent, each accessible floor shall be served by more than one accessible means of egress.",
+      "keywords": ["egress", "exit", "accessible means of egress", "fire code", "life safety"],
+      "applies_to": ["commercial", "public", "residential"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "208.2",
+      "title": "Parking Spaces — Minimum Number",
+      "category": "accessibility",
+      "requirement": "Parking facilities shall provide accessible parking spaces complying with Section 502 in accordance with Table 208.2. Total spaces 1-25: 1 accessible. 26-50: 2. 51-75: 3. 76-100: 4. 101-150: 5. 151-200: 6. 201-300: 7. 301-400: 8. 401-500: 9. 501-1000: 2% of total. 1001 and over: 20 plus 1 for each 100 over 1000.",
+      "keywords": ["parking", "accessible parking", "van accessible", "parking spaces", "disabled parking"],
+      "applies_to": ["commercial", "public"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "208.2.4",
+      "title": "Van Accessible Parking Spaces",
+      "category": "accessibility",
+      "requirement": "For every 6 accessible parking spaces, at least 1 shall be van accessible complying with Section 502.2 through 502.8. Van accessible spaces require a 60-inch minimum side access aisle (or 96-inch aisle for universal design).",
+      "keywords": ["van accessible", "parking", "access aisle", "96 inch", "60 inch"],
+      "applies_to": ["commercial", "public"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "303.2",
+      "title": "Changes in Level — Vertical",
+      "category": "floor_surfaces",
+      "requirement": "Vertical changes in level of 1/4 inch high maximum shall be permitted. Changes in level between 1/4 inch and 1/2 inch high shall be beveled with a slope not steeper than 1:2. Changes in level greater than 1/2 inch shall be ramped.",
+      "keywords": ["change in level", "threshold", "vertical", "bevel", "ramp", "floor transition"],
+      "applies_to": ["commercial", "public", "residential"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "402.2",
+      "title": "Floor or Ground Surfaces — Accessible Route",
+      "category": "accessible_route",
+      "requirement": "Floor and ground surfaces shall be stable, firm, and slip resistant. Openings in floor or ground surfaces shall not allow passage of a sphere more than 1/2 inch diameter.",
+      "keywords": ["floor surface", "slip resistant", "stable", "firm", "grate", "opening"],
+      "applies_to": ["commercial", "public", "residential"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "403.3",
+      "title": "Accessible Routes — Slope",
+      "category": "accessible_route",
+      "requirement": "The running slope of walking surfaces shall not be steeper than 1:20. Cross slopes shall not be steeper than 1:48.",
+      "keywords": ["slope", "running slope", "cross slope", "walkway", "sidewalk", "accessible route"],
+      "applies_to": ["commercial", "public", "residential"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "403.5.1",
+      "title": "Accessible Routes — Clear Width",
+      "category": "accessible_route",
+      "requirement": "Except as provided in 403.5.2 and 403.5.3, the clear width of walking surfaces shall be 36 inches minimum.",
+      "keywords": ["clear width", "walkway", "corridor", "36 inch", "accessible route width"],
+      "applies_to": ["commercial", "public", "residential"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "404.2.3",
+      "title": "Doors — Clear Width",
+      "category": "doors",
+      "requirement": "Door openings shall provide a clear opening of 32 inches minimum. Clear opening is measured between the face of the door and the stop, with the door open 90 degrees.",
+      "keywords": ["door width", "clear opening", "32 inch", "door opening", "accessibility"],
+      "applies_to": ["commercial", "public", "residential"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "404.2.4",
+      "title": "Doors — Maneuvering Clearances",
+      "category": "doors",
+      "requirement": "Minimum maneuvering clearances at doors and gates shall comply with Table 404.2.4.1. For a front approach pull side, clearance is 18 inches minimum on the latch side. For push side, 12 inches minimum on latch side if closer and latch provided.",
+      "keywords": ["door clearance", "maneuvering clearance", "latch side", "swing clearance", "wheelchair"],
+      "applies_to": ["commercial", "public", "residential"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "404.2.9",
+      "title": "Doors — Hardware",
+      "category": "doors",
+      "requirement": "Handles, pulls, latches, locks, and other operable parts on accessible doors and gates shall comply with Section 309.4. Door hardware shall not require tight grasping, pinching, or twisting of the wrist to operate.",
+      "keywords": ["door hardware", "lever handle", "accessible hardware", "operable parts", "no twist"],
+      "applies_to": ["commercial", "public", "residential"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "405.2",
+      "title": "Ramps — Slope",
+      "category": "ramps",
+      "requirement": "Ramp runs shall have a running slope not steeper than 1:12. The cross slope of ramp runs shall not be steeper than 1:48.",
+      "keywords": ["ramp slope", "1:12", "running slope", "cross slope", "ramp"],
+      "applies_to": ["commercial", "public", "residential"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "405.3",
+      "title": "Ramps — Cross Slope",
+      "category": "ramps",
+      "requirement": "Cross slopes of ramp runs shall not be steeper than 1:48.",
+      "keywords": ["ramp", "cross slope", "1:48", "lateral slope"],
+      "applies_to": ["commercial", "public", "residential"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "405.5",
+      "title": "Ramps — Clear Width",
+      "category": "ramps",
+      "requirement": "The clear width of a ramp run and, where handrails are provided, the clear width between handrails shall be 36 inches minimum.",
+      "keywords": ["ramp width", "36 inch", "clear width", "handrail", "ramp"],
+      "applies_to": ["commercial", "public", "residential"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "405.6",
+      "title": "Ramps — Rise",
+      "category": "ramps",
+      "requirement": "The rise for any ramp run shall be 30 inches maximum.",
+      "keywords": ["ramp rise", "30 inch", "vertical rise", "ramp run"],
+      "applies_to": ["commercial", "public", "residential"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "405.7",
+      "title": "Ramps — Landings",
+      "category": "ramps",
+      "requirement": "Ramps shall have landings at the top and the bottom of each ramp run. Landings shall comply with 405.7.1 through 405.7.5. Width: at least as wide as the widest ramp run leading to landing. Length: 60 inches minimum clear.",
+      "keywords": ["ramp landing", "60 inch landing", "ramp run", "landing width"],
+      "applies_to": ["commercial", "public", "residential"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "405.8",
+      "title": "Ramps — Handrails",
+      "category": "ramps",
+      "requirement": "Ramp runs with a rise greater than 6 inches shall have handrails complying with Section 505 on both sides. Handrails shall not reduce required clear width.",
+      "keywords": ["ramp handrail", "handrails", "6 inch rise", "both sides", "handrail height"],
+      "applies_to": ["commercial", "public", "residential"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "407.4.6.1",
+      "title": "Elevators — Door Reopening Device",
+      "category": "elevators",
+      "requirement": "Elevator doors shall include a reopening device that shall stop and reopen a car door and hoistway door automatically if the door becomes obstructed by an object or person. The device shall be capable of completing the cycle of closing and reopening in 20 seconds maximum.",
+      "keywords": ["elevator door", "reopening device", "door sensor", "obstruction", "20 seconds"],
+      "applies_to": ["commercial", "public"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "502.2",
+      "title": "Parking Spaces — Vehicle Space Size",
+      "category": "parking",
+      "requirement": "Car parking spaces shall be 96 inches wide minimum. Van parking spaces shall be 132 inches wide minimum (or 96 inches wide minimum with an 96-inch minimum access aisle).",
+      "keywords": ["parking space width", "96 inch", "132 inch", "van accessible", "car parking"],
+      "applies_to": ["commercial", "public"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "502.4",
+      "title": "Parking Spaces — Floor or Ground Surface",
+      "category": "parking",
+      "requirement": "Parking spaces and access aisles serving them shall comply with Section 302. Access aisles shall be at the same level as the parking spaces they serve. Changes in level are not permitted.",
+      "keywords": ["parking surface", "access aisle", "level", "change in level", "slope"],
+      "applies_to": ["commercial", "public"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "505.4",
+      "title": "Handrails — Height",
+      "category": "handrails_stairs",
+      "requirement": "Top of gripping surfaces of handrails shall be 34 inches minimum and 38 inches maximum above walking surfaces, stair nosings, and ramp surfaces.",
+      "keywords": ["handrail height", "34 inch", "38 inch", "gripping surface", "stair handrail"],
+      "applies_to": ["commercial", "public", "residential"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "602.2",
+      "title": "Drinking Fountains — Clear Floor Space",
+      "category": "drinking_fountains",
+      "requirement": "A clear floor space complying with Section 305, positioned for a forward approach, shall be provided. Knee and toe clearances complying with Section 306 shall be provided.",
+      "keywords": ["drinking fountain", "clear floor space", "forward approach", "knee clearance", "water fountain"],
+      "applies_to": ["commercial", "public"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "604.2",
+      "title": "Toilet Rooms — Location",
+      "category": "toilet_rooms",
+      "requirement": "The centerline of the water closet shall be 16 inches minimum to 18 inches maximum from the side wall or partition.",
+      "keywords": ["toilet", "water closet", "centerline", "side wall", "16 inch", "18 inch"],
+      "applies_to": ["commercial", "public", "residential"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "604.3.1",
+      "title": "Toilet Rooms — Clear Floor Space",
+      "category": "toilet_rooms",
+      "requirement": "Clearance around a water closet shall be 60 inches minimum measured perpendicular from the side wall and 56 inches minimum measured perpendicular from the rear wall.",
+      "keywords": ["toilet clearance", "60 inch", "56 inch", "water closet clearance", "bathroom clearance"],
+      "applies_to": ["commercial", "public", "residential"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "604.5.1",
+      "title": "Grab Bars — Side Wall",
+      "category": "toilet_rooms",
+      "requirement": "A side wall grab bar complying with Section 609 shall be provided. The bar shall be 42 inches long minimum, located 12 inches maximum from the rear wall and extending 54 inches minimum from the rear wall.",
+      "keywords": ["grab bar", "side wall", "42 inch", "54 inch", "toilet grab bar"],
+      "applies_to": ["commercial", "public", "residential"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "604.5.2",
+      "title": "Grab Bars — Rear Wall",
+      "category": "toilet_rooms",
+      "requirement": "A rear wall grab bar complying with Section 609 shall be provided. The bar shall be 36 inches long minimum, centered on the water closet.",
+      "keywords": ["grab bar", "rear wall", "36 inch", "toilet grab bar", "behind toilet"],
+      "applies_to": ["commercial", "public", "residential"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "606.2",
+      "title": "Lavatories — Knee and Toe Clearance",
+      "category": "lavatories",
+      "requirement": "Knee and toe clearance complying with Section 306 shall be provided. The accessible lavatory shall be mounted with the rim or counter surface no higher than 34 inches above the finish floor.",
+      "keywords": ["lavatory", "sink height", "34 inch", "knee clearance", "toe clearance", "accessible sink"],
+      "applies_to": ["commercial", "public", "residential"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "703.3",
+      "title": "Signs — Raised Characters",
+      "category": "signage",
+      "requirement": "Raised characters shall comply with 703.3.1 through 703.3.7. Raised characters shall be uppercase. Characters shall be sans serif. Character height shall be 5/8 inch minimum and 2 inches maximum.",
+      "keywords": ["sign", "raised characters", "braille", "accessible signage", "tactile sign"],
+      "applies_to": ["commercial", "public"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "804.2.1",
+      "title": "Kitchens — Pass-Through Kitchens",
+      "category": "kitchens",
+      "requirement": "In pass-through kitchens where counters, appliances, or cabinets are on two opposing sides, or where counters, appliances, or cabinets are on one side only, the clearance between all opposing base cabinets, countertops, appliances, or walls shall be 40 inches minimum.",
+      "keywords": ["kitchen clearance", "40 inch", "pass through kitchen", "galley kitchen", "accessible kitchen"],
+      "applies_to": ["residential", "commercial"],
+      "severity": "REQUIRED"
+    }
+  ]
+}

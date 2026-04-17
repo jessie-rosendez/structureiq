@@ -1,0 +1,280 @@
+{
+  "standard": "ASHRAE 90.1 — Energy Standard for Buildings Except Low-Rise Residential Buildings",
+  "version": "2019",
+  "source": "Manually structured from ASHRAE 90.1-2019 — key energy minimums by climate zone. Not a verbatim reproduction.",
+  "legal_status": "Manually structured summary of minimum requirements — not a reproduction of ASHRAE copyrighted text",
+  "climate_zones": {
+    "1": "Very Hot — Humid (1A) or Dry (1B): Miami, Honolulu",
+    "2": "Hot — Humid (2A) or Dry (2B): Houston, Phoenix",
+    "3": "Warm — Humid (3A), Dry (3B), or Marine (3C): Atlanta, Las Vegas, San Francisco",
+    "4": "Mixed — Humid (4A), Dry (4B), or Marine (4C): Baltimore, Albuquerque, Seattle",
+    "5": "Cool — Humid (5A), Dry (5B), or Marine (5C): Chicago, Denver, Portland OR",
+    "6": "Cold — Humid (6A) or Dry (6B): Minneapolis, Helena",
+    "7": "Very Cold: Duluth MN, Anchorage (part)",
+    "8": "Subarctic/Arctic: Fairbanks AK"
+  },
+  "sections": [
+    {
+      "section_id": "ASHRAE-90.1-5.4.3.1",
+      "title": "Envelope — Above-Grade Wall Insulation (Mass Walls)",
+      "category": "envelope_walls",
+      "requirement": "Minimum continuous insulation R-values for mass walls (CMU, concrete, brick) by climate zone: CZ1: R-0; CZ2: R-0; CZ3: R-0; CZ4: R-7.6ci; CZ5: R-7.6ci; CZ6: R-11.4ci; CZ7: R-14.4ci; CZ8: R-18.8ci. ci = continuous insulation.",
+      "keywords": ["wall insulation", "mass wall", "CMU", "concrete wall", "R-value", "continuous insulation", "above grade"],
+      "applies_to": ["commercial", "non-residential"],
+      "severity": "MINIMUM",
+      "climate_zone_values": {
+        "1": "R-0",
+        "2": "R-0",
+        "3": "R-0",
+        "4": "R-7.6ci",
+        "5": "R-7.6ci",
+        "6": "R-11.4ci",
+        "7": "R-14.4ci",
+        "8": "R-18.8ci"
+      }
+    },
+    {
+      "section_id": "ASHRAE-90.1-5.5.3.1",
+      "title": "Envelope — Above-Grade Wall Insulation (Metal Building Walls)",
+      "category": "envelope_walls",
+      "requirement": "Minimum insulation R-values for metal building walls by climate zone: CZ1-2: R-13.0; CZ3-5: R-13.0+R-7.5ci; CZ6-8: R-13.0+R-15.6ci. Values are minimum continuous insulation or cavity insulation plus continuous insulation.",
+      "keywords": ["metal building", "metal wall", "steel frame wall", "insulation", "R-13", "metal stud wall"],
+      "applies_to": ["commercial", "industrial"],
+      "severity": "MINIMUM",
+      "climate_zone_values": {
+        "1": "R-13",
+        "2": "R-13",
+        "3": "R-13+R-7.5ci",
+        "4": "R-13+R-7.5ci",
+        "5": "R-13+R-7.5ci",
+        "6": "R-13+R-15.6ci",
+        "7": "R-13+R-15.6ci",
+        "8": "R-13+R-15.6ci"
+      }
+    },
+    {
+      "section_id": "ASHRAE-90.1-Table-5.5-4",
+      "title": "Envelope — Above-Grade Wall Insulation (Steel Framed Walls)",
+      "category": "envelope_walls",
+      "requirement": "Minimum insulation for steel-framed walls by climate zone. Cavity + continuous: CZ1: R-13+R-0; CZ2: R-13+R-3.8ci; CZ3: R-13+R-7.5ci; CZ4: R-13+R-7.5ci; CZ5: R-13+R-7.5ci; CZ6: R-13+R-15.6ci; CZ7: R-13+R-18.8ci; CZ8: R-13+R-25.0ci.",
+      "keywords": ["steel framed wall", "stud wall", "R-13", "R-15", "wall insulation", "climate zone", "continuous insulation"],
+      "applies_to": ["commercial", "non-residential"],
+      "severity": "MINIMUM",
+      "climate_zone_values": {
+        "1": "R-13+R-0",
+        "2": "R-13+R-3.8ci",
+        "3": "R-13+R-7.5ci",
+        "4": "R-13+R-7.5ci",
+        "5": "R-13+R-7.5ci",
+        "6": "R-13+R-15.6ci",
+        "7": "R-13+R-18.8ci",
+        "8": "R-13+R-25.0ci"
+      }
+    },
+    {
+      "section_id": "ASHRAE-90.1-Table-5.5-1",
+      "title": "Envelope — Roof/Ceiling Insulation (Insulation Entirely Above Deck)",
+      "category": "envelope_roof",
+      "requirement": "Minimum continuous insulation R-values for roofs with insulation entirely above deck by climate zone: CZ1-3: R-20ci; CZ4-8: R-30ci. Roofs shall also meet maximum U-factor requirements: CZ1-3: U-0.048; CZ4-8: U-0.031.",
+      "keywords": ["roof insulation", "above deck insulation", "R-20", "R-30", "roof R-value", "continuous roof insulation"],
+      "applies_to": ["commercial", "non-residential"],
+      "severity": "MINIMUM",
+      "climate_zone_values": {
+        "1": "R-20ci",
+        "2": "R-20ci",
+        "3": "R-20ci",
+        "4": "R-30ci",
+        "5": "R-30ci",
+        "6": "R-30ci",
+        "7": "R-30ci",
+        "8": "R-30ci"
+      }
+    },
+    {
+      "section_id": "ASHRAE-90.1-Table-5.5-2",
+      "title": "Envelope — Roof/Ceiling Insulation (Metal Buildings)",
+      "category": "envelope_roof",
+      "requirement": "Minimum insulation R-values for metal building roofs by climate zone: CZ1-2: R-10+R-19; CZ3-5: R-10+R-19; CZ6-8: R-10+R-25. Values represent standing seam roof (above deck) plus liner system requirements.",
+      "keywords": ["metal building roof", "standing seam roof", "roof insulation", "metal roof R-value"],
+      "applies_to": ["commercial", "industrial"],
+      "severity": "MINIMUM"
+    },
+    {
+      "section_id": "ASHRAE-90.1-Table-5.5-5",
+      "title": "Envelope — Floor Insulation (Mass Floors)",
+      "category": "envelope_floor",
+      "requirement": "Minimum insulation R-values for mass floors over unconditioned space by climate zone: CZ1-3: R-0; CZ4-5: R-6.0ci; CZ6-8: R-10.0ci.",
+      "keywords": ["floor insulation", "mass floor", "concrete floor", "R-value floor", "floor over unconditioned"],
+      "applies_to": ["commercial", "non-residential"],
+      "severity": "MINIMUM",
+      "climate_zone_values": {
+        "1": "R-0",
+        "2": "R-0",
+        "3": "R-0",
+        "4": "R-6.0ci",
+        "5": "R-6.0ci",
+        "6": "R-10.0ci",
+        "7": "R-10.0ci",
+        "8": "R-10.0ci"
+      }
+    },
+    {
+      "section_id": "ASHRAE-90.1-Table-5.5-6",
+      "title": "Envelope — Slab-on-Grade Floor Insulation",
+      "category": "envelope_floor",
+      "requirement": "Minimum insulation for slab-on-grade floors by climate zone. Unheated slab: CZ1-3: none; CZ4-5: R-10 for 2 ft; CZ6-8: R-15 for 4 ft. Heated slab: CZ1-3: none; CZ4: R-10 full; CZ5: R-15 full; CZ6-8: R-20 full.",
+      "keywords": ["slab insulation", "slab on grade", "perimeter insulation", "heated slab", "R-10 slab"],
+      "applies_to": ["commercial", "non-residential"],
+      "severity": "MINIMUM",
+      "climate_zone_values": {
+        "1": "none",
+        "2": "none",
+        "3": "none",
+        "4": "R-10 for 2ft (unheated); R-10 full (heated)",
+        "5": "R-10 for 2ft (unheated); R-15 full (heated)",
+        "6": "R-15 for 4ft (unheated); R-20 full (heated)",
+        "7": "R-15 for 4ft (unheated); R-20 full (heated)",
+        "8": "R-15 for 4ft (unheated); R-20 full (heated)"
+      }
+    },
+    {
+      "section_id": "ASHRAE-90.1-Table-5.5-3",
+      "title": "Envelope — Fenestration (Vertical Glazing) Maximum U-Factor and SHGC",
+      "category": "envelope_fenestration",
+      "requirement": "Maximum U-factor and SHGC for vertical fenestration by climate zone: CZ1: U-0.50, SHGC-0.25; CZ2: U-0.40, SHGC-0.25; CZ3: U-0.35, SHGC-0.25; CZ4: U-0.35, SHGC-0.40; CZ5: U-0.32, SHGC-0.40; CZ6: U-0.32, SHGC-0.40; CZ7: U-0.28, SHGC-0.40; CZ8: U-0.25, SHGC-0.40.",
+      "keywords": ["window U-factor", "SHGC", "glazing", "fenestration", "window insulation", "solar heat gain", "window performance"],
+      "applies_to": ["commercial", "non-residential"],
+      "severity": "MAXIMUM",
+      "climate_zone_values": {
+        "1": "U-0.50, SHGC-0.25",
+        "2": "U-0.40, SHGC-0.25",
+        "3": "U-0.35, SHGC-0.25",
+        "4": "U-0.35, SHGC-0.40",
+        "5": "U-0.32, SHGC-0.40",
+        "6": "U-0.32, SHGC-0.40",
+        "7": "U-0.28, SHGC-0.40",
+        "8": "U-0.25, SHGC-0.40"
+      }
+    },
+    {
+      "section_id": "ASHRAE-90.1-5.2.3",
+      "title": "Envelope — Maximum Fenestration Area",
+      "category": "envelope_fenestration",
+      "requirement": "The maximum vertical fenestration area shall not exceed 40 percent of the gross above-grade wall area of the building for all climate zones. Skylights shall not exceed 3 percent of gross roof area.",
+      "keywords": ["window area", "fenestration ratio", "40 percent", "glazing ratio", "window-to-wall ratio", "skylight area"],
+      "applies_to": ["commercial", "non-residential"],
+      "severity": "MAXIMUM"
+    },
+    {
+      "section_id": "ASHRAE-90.1-6.4.3.1",
+      "title": "HVAC — Economizers (Air-Side)",
+      "category": "hvac",
+      "requirement": "Air-side economizers shall be provided for individual HVAC cooling systems with fan capacity ≥ 2,700 cfm or cooling capacity ≥ 65,000 Btu/h (5.4 tons), except in Climate Zone 1 and 2. Economizer shall be capable of providing up to 100% outdoor air.",
+      "keywords": ["economizer", "air-side economizer", "HVAC", "outdoor air", "free cooling", "65000 BTU", "2700 cfm"],
+      "applies_to": ["commercial", "non-residential"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "ASHRAE-90.1-6.5.3.1",
+      "title": "HVAC — Variable Air Volume (VAV)",
+      "category": "hvac",
+      "requirement": "For dual-duct and multizone systems, VAV controls shall be provided. Fans shall use variable speed drives or variable frequency drives (VFD) when supply fan capacity exceeds 5 hp. Minimum turndown ratio: 0.5 of design airflow at 50% of design load.",
+      "keywords": ["VAV", "variable air volume", "variable frequency drive", "VFD", "fan control", "HVAC efficiency"],
+      "applies_to": ["commercial", "non-residential"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "ASHRAE-90.1-6.5.9.1",
+      "title": "HVAC — Heating and Cooling Controls (Dead Band)",
+      "category": "hvac",
+      "requirement": "When both heating and cooling are provided for a zone, zone temperature dead band shall prevent simultaneous heating and cooling. Dead band shall be not less than 5°F. Thermostat setback for unoccupied periods shall be provided: setback to at least 55°F for heating, 90°F for cooling.",
+      "keywords": ["thermostat", "deadband", "5 degree", "setback", "HVAC control", "simultaneous heating cooling"],
+      "applies_to": ["commercial", "non-residential"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "ASHRAE-90.1-9.4.1.1",
+      "title": "Lighting — Interior Lighting Power Density (LPD)",
+      "category": "lighting",
+      "requirement": "Lighting power density (LPD) shall not exceed the values in Table 9.5.1 (Building Area Method) or Table 9.6.1 (Space-by-Space Method). Representative values: Office: 0.79 W/sf; Retail: 1.26 W/sf; Corridor: 0.41 W/sf; Conference Room: 1.23 W/sf; Lobby: 0.84 W/sf.",
+      "keywords": ["lighting power density", "LPD", "watts per square foot", "interior lighting", "office lighting", "retail lighting"],
+      "applies_to": ["commercial", "non-residential"],
+      "severity": "MAXIMUM",
+      "representative_values": {
+        "office": "0.79 W/sf",
+        "retail": "1.26 W/sf",
+        "corridor_transition": "0.41 W/sf",
+        "conference_meeting_room": "1.23 W/sf",
+        "lobby": "0.84 W/sf",
+        "storage": "0.38 W/sf",
+        "manufacturing": "0.82 W/sf",
+        "classroom": "1.24 W/sf",
+        "gymnasium": "0.90 W/sf",
+        "health_care_clinic": "0.87 W/sf"
+      }
+    },
+    {
+      "section_id": "ASHRAE-90.1-9.4.1.3",
+      "title": "Lighting — Automatic Shutoff Controls",
+      "category": "lighting",
+      "requirement": "Interior lighting in buildings 5,000 sf or larger shall have automatic shutoff controls that turn off lighting when spaces are unoccupied. Acceptable controls: occupancy sensors, scheduled time switches, or a combination. Override shall not exceed 2 hours.",
+      "keywords": ["lighting control", "occupancy sensor", "automatic shutoff", "lighting schedule", "motion sensor", "unoccupied lighting"],
+      "applies_to": ["commercial", "non-residential"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "ASHRAE-90.1-9.4.1.4",
+      "title": "Lighting — Daylight Controls",
+      "category": "lighting",
+      "requirement": "Daylight responsive controls shall be provided for primary sidelighting zones (within 15 ft of windows with glazing area > 20 sf) and all skylit zones (when skylight area > 900 sf). Controls shall reduce light output by at least 50% when sufficient daylight is available.",
+      "keywords": ["daylight control", "daylighting sensor", "photosensor", "sidelighting", "skylight", "daylight harvesting"],
+      "applies_to": ["commercial", "non-residential"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "ASHRAE-90.1-10.4.1",
+      "title": "Other Equipment — Service Water Heating Efficiency",
+      "category": "water_heating",
+      "requirement": "Service water heating equipment shall meet the minimum efficiency requirements of Table 7.8. Storage water heaters ≤ 12 kW or 40,000 Btu/h: Energy Factor (EF) minimum 0.95. Gas fired storage water heaters: minimum 80% thermal efficiency. Instantaneous gas water heaters: minimum 80% thermal efficiency.",
+      "keywords": ["water heater", "service water heating", "hot water efficiency", "EF", "thermal efficiency", "80 percent"],
+      "applies_to": ["commercial", "non-residential"],
+      "severity": "MINIMUM"
+    },
+    {
+      "section_id": "ASHRAE-90.1-7.4.2",
+      "title": "Service Water Heating — Piping Insulation",
+      "category": "water_heating",
+      "requirement": "All piping in service water heating systems shall be thermally insulated. Hot water piping insulation: 1 inch minimum for piping up to 1.5 inch diameter; 1.5 inch minimum for piping 1.5 to 4 inch diameter. Recirculation systems shall have controls to limit operation.",
+      "keywords": ["pipe insulation", "hot water pipe", "piping insulation", "1 inch insulation", "recirculation", "water heating pipe"],
+      "applies_to": ["commercial", "non-residential"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "ASHRAE-90.1-5.4.4.1",
+      "title": "Envelope — Continuous Air Barriers",
+      "category": "envelope_air_barrier",
+      "requirement": "A continuous air barrier shall be provided for the building envelope in all climate zones. The air barrier shall be continuous across all assemblies of the building envelope and shall have a maximum air permeability not exceeding 0.004 cfm/sf under a pressure differential of 0.3 in w.g.",
+      "keywords": ["air barrier", "continuous air barrier", "air infiltration", "air sealing", "envelope air leakage"],
+      "applies_to": ["commercial", "non-residential"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "ASHRAE-90.1-5.4.5",
+      "title": "Envelope — Moisture Control",
+      "category": "envelope_moisture",
+      "requirement": "Vapor retarders and vapor barriers shall be installed in all climate zones as required per Table 5.4.5. Class II vapor retarder required on the warm-in-winter side in Climate Zones 5 through 8. Mandatory in exterior walls and ceilings of conditioned spaces.",
+      "keywords": ["vapor retarder", "vapor barrier", "moisture control", "dew point", "condensation", "wall assembly moisture"],
+      "applies_to": ["commercial", "non-residential"],
+      "severity": "REQUIRED"
+    },
+    {
+      "section_id": "ASHRAE-90.1-8.4.1",
+      "title": "Power — Electrical Metering",
+      "category": "electrical_metering",
+      "requirement": "For buildings with service over 100 kW, a single electrical meter shall be provided for the entire building unless the building has multiple tenants or uses. Buildings over 500,000 sf shall have sub-metering for each of at least the following end uses: HVAC, lighting, other plug loads.",
+      "keywords": ["electrical meter", "sub-metering", "energy monitoring", "100 kW", "500000 sf", "energy measurement"],
+      "applies_to": ["commercial", "non-residential"],
+      "severity": "REQUIRED"
+    }
+  ]
+}

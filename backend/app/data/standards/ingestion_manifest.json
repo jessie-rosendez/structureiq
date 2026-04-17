@@ -1,0 +1,572 @@
+{
+  "ingested_at": "2026-04-17T03:14:13Z",
+  "index_id": "5863849442557296640",
+  "total_sections": 113,
+  "files": [
+    {
+      "file": "ada_standards.json",
+      "section_id": "202.4",
+      "id": "ada_standards__202_4"
+    },
+    {
+      "file": "ada_standards.json",
+      "section_id": "206.2.1",
+      "id": "ada_standards__206_2_1"
+    },
+    {
+      "file": "ada_standards.json",
+      "section_id": "206.2.3",
+      "id": "ada_standards__206_2_3"
+    },
+    {
+      "file": "ada_standards.json",
+      "section_id": "206.4",
+      "id": "ada_standards__206_4"
+    },
+    {
+      "file": "ada_standards.json",
+      "section_id": "206.6",
+      "id": "ada_standards__206_6"
+    },
+    {
+      "file": "ada_standards.json",
+      "section_id": "207.1",
+      "id": "ada_standards__207_1"
+    },
+    {
+      "file": "ada_standards.json",
+      "section_id": "208.2",
+      "id": "ada_standards__208_2"
+    },
+    {
+      "file": "ada_standards.json",
+      "section_id": "208.2.4",
+      "id": "ada_standards__208_2_4"
+    },
+    {
+      "file": "ada_standards.json",
+      "section_id": "303.2",
+      "id": "ada_standards__303_2"
+    },
+    {
+      "file": "ada_standards.json",
+      "section_id": "402.2",
+      "id": "ada_standards__402_2"
+    },
+    {
+      "file": "ada_standards.json",
+      "section_id": "403.3",
+      "id": "ada_standards__403_3"
+    },
+    {
+      "file": "ada_standards.json",
+      "section_id": "403.5.1",
+      "id": "ada_standards__403_5_1"
+    },
+    {
+      "file": "ada_standards.json",
+      "section_id": "404.2.3",
+      "id": "ada_standards__404_2_3"
+    },
+    {
+      "file": "ada_standards.json",
+      "section_id": "404.2.4",
+      "id": "ada_standards__404_2_4"
+    },
+    {
+      "file": "ada_standards.json",
+      "section_id": "404.2.9",
+      "id": "ada_standards__404_2_9"
+    },
+    {
+      "file": "ada_standards.json",
+      "section_id": "405.2",
+      "id": "ada_standards__405_2"
+    },
+    {
+      "file": "ada_standards.json",
+      "section_id": "405.3",
+      "id": "ada_standards__405_3"
+    },
+    {
+      "file": "ada_standards.json",
+      "section_id": "405.5",
+      "id": "ada_standards__405_5"
+    },
+    {
+      "file": "ada_standards.json",
+      "section_id": "405.6",
+      "id": "ada_standards__405_6"
+    },
+    {
+      "file": "ada_standards.json",
+      "section_id": "405.7",
+      "id": "ada_standards__405_7"
+    },
+    {
+      "file": "ada_standards.json",
+      "section_id": "405.8",
+      "id": "ada_standards__405_8"
+    },
+    {
+      "file": "ada_standards.json",
+      "section_id": "407.4.6.1",
+      "id": "ada_standards__407_4_6_1"
+    },
+    {
+      "file": "ada_standards.json",
+      "section_id": "502.2",
+      "id": "ada_standards__502_2"
+    },
+    {
+      "file": "ada_standards.json",
+      "section_id": "502.4",
+      "id": "ada_standards__502_4"
+    },
+    {
+      "file": "ada_standards.json",
+      "section_id": "505.4",
+      "id": "ada_standards__505_4"
+    },
+    {
+      "file": "ada_standards.json",
+      "section_id": "602.2",
+      "id": "ada_standards__602_2"
+    },
+    {
+      "file": "ada_standards.json",
+      "section_id": "604.2",
+      "id": "ada_standards__604_2"
+    },
+    {
+      "file": "ada_standards.json",
+      "section_id": "604.3.1",
+      "id": "ada_standards__604_3_1"
+    },
+    {
+      "file": "ada_standards.json",
+      "section_id": "604.5.1",
+      "id": "ada_standards__604_5_1"
+    },
+    {
+      "file": "ada_standards.json",
+      "section_id": "604.5.2",
+      "id": "ada_standards__604_5_2"
+    },
+    {
+      "file": "ada_standards.json",
+      "section_id": "606.2",
+      "id": "ada_standards__606_2"
+    },
+    {
+      "file": "ada_standards.json",
+      "section_id": "703.3",
+      "id": "ada_standards__703_3"
+    },
+    {
+      "file": "ada_standards.json",
+      "section_id": "804.2.1",
+      "id": "ada_standards__804_2_1"
+    },
+    {
+      "file": "ashrae_lite.json",
+      "section_id": "ASHRAE-90.1-5.4.3.1",
+      "id": "ashrae_lite__ASHRAE_90_1_5_4_3_1"
+    },
+    {
+      "file": "ashrae_lite.json",
+      "section_id": "ASHRAE-90.1-5.5.3.1",
+      "id": "ashrae_lite__ASHRAE_90_1_5_5_3_1"
+    },
+    {
+      "file": "ashrae_lite.json",
+      "section_id": "ASHRAE-90.1-Table-5.5-4",
+      "id": "ashrae_lite__ASHRAE_90_1_Table_5_5_4"
+    },
+    {
+      "file": "ashrae_lite.json",
+      "section_id": "ASHRAE-90.1-Table-5.5-1",
+      "id": "ashrae_lite__ASHRAE_90_1_Table_5_5_1"
+    },
+    {
+      "file": "ashrae_lite.json",
+      "section_id": "ASHRAE-90.1-Table-5.5-2",
+      "id": "ashrae_lite__ASHRAE_90_1_Table_5_5_2"
+    },
+    {
+      "file": "ashrae_lite.json",
+      "section_id": "ASHRAE-90.1-Table-5.5-5",
+      "id": "ashrae_lite__ASHRAE_90_1_Table_5_5_5"
+    },
+    {
+      "file": "ashrae_lite.json",
+      "section_id": "ASHRAE-90.1-Table-5.5-6",
+      "id": "ashrae_lite__ASHRAE_90_1_Table_5_5_6"
+    },
+    {
+      "file": "ashrae_lite.json",
+      "section_id": "ASHRAE-90.1-Table-5.5-3",
+      "id": "ashrae_lite__ASHRAE_90_1_Table_5_5_3"
+    },
+    {
+      "file": "ashrae_lite.json",
+      "section_id": "ASHRAE-90.1-5.2.3",
+      "id": "ashrae_lite__ASHRAE_90_1_5_2_3"
+    },
+    {
+      "file": "ashrae_lite.json",
+      "section_id": "ASHRAE-90.1-6.4.3.1",
+      "id": "ashrae_lite__ASHRAE_90_1_6_4_3_1"
+    },
+    {
+      "file": "ashrae_lite.json",
+      "section_id": "ASHRAE-90.1-6.5.3.1",
+      "id": "ashrae_lite__ASHRAE_90_1_6_5_3_1"
+    },
+    {
+      "file": "ashrae_lite.json",
+      "section_id": "ASHRAE-90.1-6.5.9.1",
+      "id": "ashrae_lite__ASHRAE_90_1_6_5_9_1"
+    },
+    {
+      "file": "ashrae_lite.json",
+      "section_id": "ASHRAE-90.1-9.4.1.1",
+      "id": "ashrae_lite__ASHRAE_90_1_9_4_1_1"
+    },
+    {
+      "file": "ashrae_lite.json",
+      "section_id": "ASHRAE-90.1-9.4.1.3",
+      "id": "ashrae_lite__ASHRAE_90_1_9_4_1_3"
+    },
+    {
+      "file": "ashrae_lite.json",
+      "section_id": "ASHRAE-90.1-9.4.1.4",
+      "id": "ashrae_lite__ASHRAE_90_1_9_4_1_4"
+    },
+    {
+      "file": "ashrae_lite.json",
+      "section_id": "ASHRAE-90.1-10.4.1",
+      "id": "ashrae_lite__ASHRAE_90_1_10_4_1"
+    },
+    {
+      "file": "ashrae_lite.json",
+      "section_id": "ASHRAE-90.1-7.4.2",
+      "id": "ashrae_lite__ASHRAE_90_1_7_4_2"
+    },
+    {
+      "file": "ashrae_lite.json",
+      "section_id": "ASHRAE-90.1-5.4.4.1",
+      "id": "ashrae_lite__ASHRAE_90_1_5_4_4_1"
+    },
+    {
+      "file": "ashrae_lite.json",
+      "section_id": "ASHRAE-90.1-5.4.5",
+      "id": "ashrae_lite__ASHRAE_90_1_5_4_5"
+    },
+    {
+      "file": "ashrae_lite.json",
+      "section_id": "ASHRAE-90.1-8.4.1",
+      "id": "ashrae_lite__ASHRAE_90_1_8_4_1"
+    },
+    {
+      "file": "ibc_lite.json",
+      "section_id": "IBC-302.1",
+      "id": "ibc_lite__IBC_302_1"
+    },
+    {
+      "file": "ibc_lite.json",
+      "section_id": "IBC-303.1",
+      "id": "ibc_lite__IBC_303_1"
+    },
+    {
+      "file": "ibc_lite.json",
+      "section_id": "IBC-310.4",
+      "id": "ibc_lite__IBC_310_4"
+    },
+    {
+      "file": "ibc_lite.json",
+      "section_id": "IBC-903.2",
+      "id": "ibc_lite__IBC_903_2"
+    },
+    {
+      "file": "ibc_lite.json",
+      "section_id": "IBC-903.3.1.1",
+      "id": "ibc_lite__IBC_903_3_1_1"
+    },
+    {
+      "file": "ibc_lite.json",
+      "section_id": "IBC-903.3.1.2",
+      "id": "ibc_lite__IBC_903_3_1_2"
+    },
+    {
+      "file": "ibc_lite.json",
+      "section_id": "IBC-905.3.1",
+      "id": "ibc_lite__IBC_905_3_1"
+    },
+    {
+      "file": "ibc_lite.json",
+      "section_id": "IBC-907.2",
+      "id": "ibc_lite__IBC_907_2"
+    },
+    {
+      "file": "ibc_lite.json",
+      "section_id": "IBC-907.2.11.2",
+      "id": "ibc_lite__IBC_907_2_11_2"
+    },
+    {
+      "file": "ibc_lite.json",
+      "section_id": "IBC-1004.1",
+      "id": "ibc_lite__IBC_1004_1"
+    },
+    {
+      "file": "ibc_lite.json",
+      "section_id": "IBC-1006.3.3",
+      "id": "ibc_lite__IBC_1006_3_3"
+    },
+    {
+      "file": "ibc_lite.json",
+      "section_id": "IBC-1009.1",
+      "id": "ibc_lite__IBC_1009_1"
+    },
+    {
+      "file": "ibc_lite.json",
+      "section_id": "IBC-1010.1.9.2",
+      "id": "ibc_lite__IBC_1010_1_9_2"
+    },
+    {
+      "file": "ibc_lite.json",
+      "section_id": "IBC-1011.1",
+      "id": "ibc_lite__IBC_1011_1"
+    },
+    {
+      "file": "ibc_lite.json",
+      "section_id": "IBC-1011.5.2",
+      "id": "ibc_lite__IBC_1011_5_2"
+    },
+    {
+      "file": "ibc_lite.json",
+      "section_id": "IBC-1011.11",
+      "id": "ibc_lite__IBC_1011_11"
+    },
+    {
+      "file": "ibc_lite.json",
+      "section_id": "IBC-1012.1",
+      "id": "ibc_lite__IBC_1012_1"
+    },
+    {
+      "file": "ibc_lite.json",
+      "section_id": "IBC-1012.3",
+      "id": "ibc_lite__IBC_1012_3"
+    },
+    {
+      "file": "ibc_lite.json",
+      "section_id": "IBC-1014.2",
+      "id": "ibc_lite__IBC_1014_2"
+    },
+    {
+      "file": "ibc_lite.json",
+      "section_id": "IBC-1020.1",
+      "id": "ibc_lite__IBC_1020_1"
+    },
+    {
+      "file": "ibc_lite.json",
+      "section_id": "IBC-1101.1",
+      "id": "ibc_lite__IBC_1101_1"
+    },
+    {
+      "file": "ibc_lite.json",
+      "section_id": "IBC-1103.2.1",
+      "id": "ibc_lite__IBC_1103_2_1"
+    },
+    {
+      "file": "ibc_lite.json",
+      "section_id": "IBC-1104.1",
+      "id": "ibc_lite__IBC_1104_1"
+    },
+    {
+      "file": "ibc_lite.json",
+      "section_id": "IBC-1107.6.1.1",
+      "id": "ibc_lite__IBC_1107_6_1_1"
+    },
+    {
+      "file": "osha_construction.json",
+      "section_id": "1926.20(b)(1)",
+      "id": "osha_construction__1926_20(b)(1)"
+    },
+    {
+      "file": "osha_construction.json",
+      "section_id": "1926.25(a)",
+      "id": "osha_construction__1926_25(a)"
+    },
+    {
+      "file": "osha_construction.json",
+      "section_id": "1926.50(a)",
+      "id": "osha_construction__1926_50(a)"
+    },
+    {
+      "file": "osha_construction.json",
+      "section_id": "1926.51(a)(1)",
+      "id": "osha_construction__1926_51(a)(1)"
+    },
+    {
+      "file": "osha_construction.json",
+      "section_id": "1926.51(c)(1)",
+      "id": "osha_construction__1926_51(c)(1)"
+    },
+    {
+      "file": "osha_construction.json",
+      "section_id": "1926.95(a)",
+      "id": "osha_construction__1926_95(a)"
+    },
+    {
+      "file": "osha_construction.json",
+      "section_id": "1926.100(a)",
+      "id": "osha_construction__1926_100(a)"
+    },
+    {
+      "file": "osha_construction.json",
+      "section_id": "1926.102(a)(1)",
+      "id": "osha_construction__1926_102(a)(1)"
+    },
+    {
+      "file": "osha_construction.json",
+      "section_id": "1926.150(a)(1)",
+      "id": "osha_construction__1926_150(a)(1)"
+    },
+    {
+      "file": "osha_construction.json",
+      "section_id": "1926.150(c)(1)(i)",
+      "id": "osha_construction__1926_150(c)(1)(i)"
+    },
+    {
+      "file": "osha_construction.json",
+      "section_id": "1926.200(b)(1)",
+      "id": "osha_construction__1926_200(b)(1)"
+    },
+    {
+      "file": "osha_construction.json",
+      "section_id": "1926.251(a)(1)",
+      "id": "osha_construction__1926_251(a)(1)"
+    },
+    {
+      "file": "osha_construction.json",
+      "section_id": "1926.300(b)(1)",
+      "id": "osha_construction__1926_300(b)(1)"
+    },
+    {
+      "file": "osha_construction.json",
+      "section_id": "1926.350(a)(9)",
+      "id": "osha_construction__1926_350(a)(9)"
+    },
+    {
+      "file": "osha_construction.json",
+      "section_id": "1926.400(a)",
+      "id": "osha_construction__1926_400(a)"
+    },
+    {
+      "file": "osha_construction.json",
+      "section_id": "1926.403(b)(1)(i)",
+      "id": "osha_construction__1926_403(b)(1)(i)"
+    },
+    {
+      "file": "osha_construction.json",
+      "section_id": "1926.416(a)(1)",
+      "id": "osha_construction__1926_416(a)(1)"
+    },
+    {
+      "file": "osha_construction.json",
+      "section_id": "1926.451(a)(1)",
+      "id": "osha_construction__1926_451(a)(1)"
+    },
+    {
+      "file": "osha_construction.json",
+      "section_id": "1926.451(b)(1)",
+      "id": "osha_construction__1926_451(b)(1)"
+    },
+    {
+      "file": "osha_construction.json",
+      "section_id": "1926.451(e)(1)",
+      "id": "osha_construction__1926_451(e)(1)"
+    },
+    {
+      "file": "osha_construction.json",
+      "section_id": "1926.451(g)(1)",
+      "id": "osha_construction__1926_451(g)(1)"
+    },
+    {
+      "file": "osha_construction.json",
+      "section_id": "1926.502(b)(1)",
+      "id": "osha_construction__1926_502(b)(1)"
+    },
+    {
+      "file": "osha_construction.json",
+      "section_id": "1926.502(b)(3)",
+      "id": "osha_construction__1926_502(b)(3)"
+    },
+    {
+      "file": "osha_construction.json",
+      "section_id": "1926.502(d)(16)",
+      "id": "osha_construction__1926_502(d)(16)"
+    },
+    {
+      "file": "osha_construction.json",
+      "section_id": "1926.502(j)(1)",
+      "id": "osha_construction__1926_502(j)(1)"
+    },
+    {
+      "file": "osha_construction.json",
+      "section_id": "1926.503(a)(1)",
+      "id": "osha_construction__1926_503(a)(1)"
+    },
+    {
+      "file": "osha_construction.json",
+      "section_id": "1926.550(a)(1)",
+      "id": "osha_construction__1926_550(a)(1)"
+    },
+    {
+      "file": "osha_construction.json",
+      "section_id": "1926.600(a)(1)",
+      "id": "osha_construction__1926_600(a)(1)"
+    },
+    {
+      "file": "osha_construction.json",
+      "section_id": "1926.651(a)",
+      "id": "osha_construction__1926_651(a)"
+    },
+    {
+      "file": "osha_construction.json",
+      "section_id": "1926.652(a)(1)",
+      "id": "osha_construction__1926_652(a)(1)"
+    },
+    {
+      "file": "osha_construction.json",
+      "section_id": "1926.701(b)",
+      "id": "osha_construction__1926_701(b)"
+    },
+    {
+      "file": "osha_construction.json",
+      "section_id": "1926.702(a)(1)",
+      "id": "osha_construction__1926_702(a)(1)"
+    },
+    {
+      "file": "osha_construction.json",
+      "section_id": "1926.760(a)(1)",
+      "id": "osha_construction__1926_760(a)(1)"
+    },
+    {
+      "file": "osha_construction.json",
+      "section_id": "1926.1053(a)(1)",
+      "id": "osha_construction__1926_1053(a)(1)"
+    },
+    {
+      "file": "osha_construction.json",
+      "section_id": "1926.1053(b)(1)",
+      "id": "osha_construction__1926_1053(b)(1)"
+    },
+    {
+      "file": "osha_construction.json",
+      "section_id": "1926.1053(b)(4)",
+      "id": "osha_construction__1926_1053(b)(4)"
+    }
+  ]
+}
