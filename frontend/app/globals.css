@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer base {
+  :root {
+    --background: #ffffff;
+    --foreground: #111827;
+    --border: #DDE2E8;
+    --ring: #0066CC;
+    --radius: 0.5rem;
+  }
+
+  * {
+    border-color: #DDE2E8;
+    box-sizing: border-box;
+  }
+
+  body {
+    @apply bg-white font-sans antialiased;
+    color: #111827;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+}
+
+@media print {
+  header, button { display: none !important; }
+  body { background: white !important; }
+}
