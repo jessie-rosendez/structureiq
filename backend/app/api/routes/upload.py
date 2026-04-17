@@ -2,6 +2,7 @@
 Document upload → GCS → parse → embed → Vertex AI documents index.
 """
 
+import json
 import uuid
 import time
 from typing import Any
@@ -18,6 +19,37 @@ router = APIRouter()
 
 # In-memory document registry: document_id → {filename, metadata, chunks}
 _document_registry: dict[str, dict[str, Any]] = {}
+
+
+def _write_doc_metadata(document_id: str, meta: dict[str, Any]) -> None:
+    """Persist lightweight doc metadata to GCS so other instances can find it."""
+    settings = get_settings()
+    try:
+        client = storage.Client(project=settings.google_cloud_project)
+        bucket = client.bucket(settings.gcs_bucket_name)
+        blob = bucket.blob(f"metadata/{document_id}.json")
+        payload = {k: v for k, v in meta.items() if k not in ("chunks", "embeddings")}
+        blob.upload_from_string(json.dumps(payload), content_type="application/json")
+    except Exception:
+        pass  # non-fatal — memory cache still works on same instance
+
+
+def get_document(document_id: str) -> dict[str, Any] | None:
+    if document_id in _document_registry:
+        return _document_registry[document_id]
+    # Cache miss — try GCS (hit when request lands on a different instance)
+    settings = get_settings()
+    try:
+        client = storage.Client(project=settings.google_cloud_project)
+        bucket = client.bucket(settings.gcs_bucket_name)
+        blob = bucket.blob(f"metadata/{document_id}.json")
+        if not blob.exists():
+            return None
+        meta = json.loads(blob.download_as_text())
+        _document_registry[document_id] = meta  # warm local cache
+        return meta
+    except Exception:
+        return None
 
 ALLOWED_MIME_TYPES = {
     "application/pdf": ".pdf",
@@ -76,6 +108,7 @@ async def upload_document(file: UploadFile = File(...)) -> UploadResponse:
             "chunks": [],
             "chunk_count": 0,
         }
+        _write_doc_metadata(document_id, _document_registry[document_id])
         return UploadResponse(
             document_id=document_id,
             filename=original_filename,
@@ -114,7 +147,6 @@ async def upload_document(file: UploadFile = File(...)) -> UploadResponse:
             ),
         )
 
-    # Cache chunks for fast lookup in this session
     _document_registry[document_id] = {
         "filename": original_filename,
         "gcs_path": gcs_blob_name,
@@ -124,6 +156,7 @@ async def upload_document(file: UploadFile = File(...)) -> UploadResponse:
         "embeddings": embeddings,
         "chunk_count": len(chunks),
     }
+    _write_doc_metadata(document_id, _document_registry[document_id])
 
     return UploadResponse(
         document_id=document_id,
@@ -165,5 +198,3 @@ def _upsert_document_chunks(
         time.sleep(0.1)
 
 
-def get_document(document_id: str) -> dict[str, Any] | None:
-    return _document_registry.get(document_id)
