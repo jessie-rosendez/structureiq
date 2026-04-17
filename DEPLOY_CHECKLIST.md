@@ -21,6 +21,12 @@ Run this checklist before every production deploy. Check each item before procee
 - [x] `RETRIEVAL_TOP_K_DOCS=5`
 - [x] `RETRIEVAL_TOP_K_STANDARDS=3`
 - [x] `CONFIDENCE_THRESHOLD=0.75`
+- [x] `VERTEX_STANDARDS_INDEX_ID=5863849442557296640`
+- [x] `VERTEX_DOCUMENTS_INDEX_ID=8407961019556560896`
+- [x] `VERTEX_STANDARDS_INDEX_ENDPOINT=7384130976143638528`
+- [x] `VERTEX_DOCUMENTS_INDEX_ENDPOINT=4713496397112934400`
+- [x] `VERTEX_STANDARDS_DEPLOYED_INDEX_ID=standards_v2`
+- [x] `VERTEX_DOCUMENTS_DEPLOYED_INDEX_ID=documents_v2`
 
 ### Secrets (injected via `--set-secrets`, stored in GCP Secret Manager)
 - [x] `GOOGLE_API_KEY` → Secret Manager: `google-api-key:latest`
