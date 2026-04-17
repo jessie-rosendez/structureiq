@@ -1,4 +1,5 @@
 from fastapi import APIRouter, HTTPException
+from google.genai.errors import ClientError
 
 from app.core.rag import run_two_layer_rag
 from app.models.document import QueryRequest, QueryResponse
@@ -32,11 +33,19 @@ async def query_document(request: QueryRequest) -> QueryResponse:
                 }
             )
 
-    result = run_two_layer_rag(
-        question=request.question,
-        document_session_id=request.document_id,
-        document_chunks_override=cached_chunks if cached_chunks else None,
-    )
+    try:
+        result = run_two_layer_rag(
+            question=request.question,
+            document_session_id=request.document_id,
+            document_chunks_override=cached_chunks if cached_chunks else None,
+        )
+    except RuntimeError as exc:
+        raise HTTPException(status_code=502, detail=str(exc)) from exc
+    except ClientError as exc:
+        raise HTTPException(
+            status_code=503,
+            detail="Vertex Gemini is temporarily unavailable. Restart the backend to pick up the latest retry logic, then try the query again.",
+        ) from exc
 
     return QueryResponse(
         answer=result["answer"],

@@ -2,14 +2,17 @@
 Two-layer RAG orchestration — the heart of StructureIQ.
 
 Every query retrieves from BOTH the user's uploaded document AND the
-compliance standards knowledge base, then synthesizes with Gemini 1.5 Pro.
+compliance standards knowledge base, then synthesizes with Gemini 2.0 Flash.
 """
 
 import json
 import asyncio
+import time
 from typing import Any
 
-import google.generativeai as genai
+from google import genai
+from google.genai import types as genai_types
+from google.genai.errors import ClientError
 from google.cloud.aiplatform.matching_engine import MatchingEngineIndexEndpoint
 
 from app.core.config import get_settings
@@ -96,6 +99,59 @@ def _format_document_context(doc_chunks: list[dict[str, Any]]) -> str:
     return "\n\n".join(lines)
 
 
+def _generate_with_retry(
+    client: genai.Client,
+    settings: Any,
+    contents: Any,
+) -> Any:
+    models = [settings.gemini_model]
+    if settings.gemini_fallback_model != settings.gemini_model:
+        models.append(settings.gemini_fallback_model)
+
+    last_429: ClientError | None = None
+
+    for model_name in models:
+        for attempt in range(settings.gemini_max_retries):
+            try:
+                return client.models.generate_content(
+                    model=model_name,
+                    contents=contents,
+                    config=genai_types.GenerateContentConfig(
+                        response_mime_type="application/json",
+                        temperature=0.1,
+                    ),
+                )
+            except ClientError as exc:
+                status_code = getattr(exc, "status_code", None)
+                if status_code == 404:
+                    raise RuntimeError(
+                        "Gemini model "
+                        f"`{model_name}` is unavailable for project "
+                        f"`{settings.google_cloud_project}` in `{settings.gemini_location}`. "
+                        "Update GEMINI_MODEL to a currently supported Vertex model, such as "
+                        "`gemini-2.5-flash`."
+                    ) from exc
+                if status_code != 429:
+                    raise
+
+                last_429 = exc
+                if attempt < settings.gemini_max_retries - 1:
+                    time.sleep(2 ** attempt)
+                    continue
+                break
+
+    raise RuntimeError(
+        "Vertex Gemini is temporarily out of capacity for this request after multiple retries. "
+        f"Tried `{settings.gemini_model}`"
+        + (
+            f" and fallback `{settings.gemini_fallback_model}`"
+            if settings.gemini_fallback_model != settings.gemini_model
+            else ""
+        )
+        + ". Try again in 1-2 minutes."
+    ) from last_429
+
+
 def run_two_layer_rag(
     question: str,
     document_session_id: str,
@@ -105,7 +161,7 @@ def run_two_layer_rag(
     Core two-layer RAG query.
 
     Runs document retrieval and standards retrieval in parallel,
-    then synthesizes with Gemini 1.5 Pro.
+    then synthesizes with Gemini 2.0 Flash.
     """
     settings = get_settings()
 
@@ -128,16 +184,13 @@ def run_two_layer_rag(
         question=question,
     )
 
-    genai.configure(api_key=settings.google_api_key)
-    model = genai.GenerativeModel("gemini-1.5-pro-002")
-
-    response = model.generate_content(
-        prompt,
-        generation_config=genai.GenerationConfig(
-            response_mime_type="application/json",
-            temperature=0.1,
-        ),
+    client = genai.Client(
+        vertexai=True,
+        project=settings.google_cloud_project,
+        location=settings.gemini_location,
     )
+
+    response = _generate_with_retry(client, settings, prompt)
 
     raw_text = response.text.strip()
     # Strip markdown code fences if present

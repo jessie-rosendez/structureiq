@@ -3,11 +3,13 @@ Gemini Vision analysis for construction images and plans.
 """
 
 import json
-import base64
+import time
 from pathlib import Path
 from typing import Any
 
-import google.generativeai as genai
+from google import genai
+from google.genai import types as genai_types
+from google.genai.errors import ClientError
 from PIL import Image
 import io
 
@@ -36,25 +38,75 @@ Be specific. Reference actual standards. Never fabricate observations.
 """
 
 
+def _generate_with_retry(
+    client: genai.Client,
+    settings: Any,
+    contents: Any,
+) -> Any:
+    models = [settings.gemini_model]
+    if settings.gemini_fallback_model != settings.gemini_model:
+        models.append(settings.gemini_fallback_model)
+
+    last_429: ClientError | None = None
+
+    for model_name in models:
+        for attempt in range(settings.gemini_max_retries):
+            try:
+                return client.models.generate_content(
+                    model=model_name,
+                    contents=contents,
+                    config=genai_types.GenerateContentConfig(
+                        response_mime_type="application/json",
+                        temperature=0.1,
+                    ),
+                )
+            except ClientError as exc:
+                status_code = getattr(exc, "status_code", None)
+                if status_code == 404:
+                    raise RuntimeError(
+                        "Gemini model "
+                        f"`{model_name}` is unavailable for project "
+                        f"`{settings.google_cloud_project}` in `{settings.gemini_location}`. "
+                        "Update GEMINI_MODEL to a currently supported Vertex model, such as "
+                        "`gemini-2.5-flash`."
+                    ) from exc
+                if status_code != 429:
+                    raise
+
+                last_429 = exc
+                if attempt < settings.gemini_max_retries - 1:
+                    time.sleep(2 ** attempt)
+                    continue
+                break
+
+    raise RuntimeError(
+        "Vertex Gemini is temporarily out of capacity for this request after multiple retries. "
+        f"Tried `{settings.gemini_model}`"
+        + (
+            f" and fallback `{settings.gemini_fallback_model}`"
+            if settings.gemini_fallback_model != settings.gemini_model
+            else ""
+        )
+        + ". Try again in 1-2 minutes."
+    ) from last_429
+
+
 def analyze_image(image_bytes: bytes, mime_type: str = "image/jpeg") -> dict[str, Any]:
     """
-    Send an image to Gemini 1.5 Pro Vision for AEC compliance analysis.
+    Send an image to Gemini 2.0 Flash for AEC compliance analysis.
 
     Returns structured analysis dict.
     """
     settings = get_settings()
-    genai.configure(api_key=settings.google_api_key)
-    model = genai.GenerativeModel("gemini-1.5-pro-002")
-
-    image_part = {"mime_type": mime_type, "data": base64.b64encode(image_bytes).decode()}
-
-    response = model.generate_content(
-        [VISION_PROMPT, image_part],
-        generation_config=genai.GenerationConfig(
-            response_mime_type="application/json",
-            temperature=0.1,
-        ),
+    client = genai.Client(
+        vertexai=True,
+        project=settings.google_cloud_project,
+        location=settings.gemini_location,
     )
+
+    image_part = genai_types.Part.from_bytes(data=image_bytes, mime_type=mime_type)
+
+    response = _generate_with_retry(client, settings, [VISION_PROMPT, image_part])
 
     raw_text = response.text.strip()
     if raw_text.startswith("```"):

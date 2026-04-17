@@ -1,0 +1,39 @@
+steps:
+  # Build the container image
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'build'
+      - '-t'
+      - 'gcr.io/$PROJECT_ID/structureiq-backend:$COMMIT_SHA'
+      - '-t'
+      - 'gcr.io/$PROJECT_ID/structureiq-backend:latest'
+      - './backend'
+
+  # Push to Container Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', '--all-tags', 'gcr.io/$PROJECT_ID/structureiq-backend']
+
+  # Deploy to Cloud Run
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args:
+      - 'run'
+      - 'deploy'
+      - 'structureiq-backend'
+      - '--image=gcr.io/$PROJECT_ID/structureiq-backend:$COMMIT_SHA'
+      - '--platform=managed'
+      - '--region=us-east1'
+      - '--allow-unauthenticated'
+      - '--service-account=structureiq-sa@$PROJECT_ID.iam.gserviceaccount.com'
+      - '--memory=2Gi'
+      - '--cpu=2'
+      - '--timeout=300'
+      - '--max-instances=10'
+      - '--set-env-vars=GOOGLE_CLOUD_PROJECT=$PROJECT_ID,GCS_BUCKET_NAME=structureiq-docs,VERTEX_LOCATION=us-east1,GEMINI_LOCATION=global,GEMINI_MODEL=gemini-2.5-flash,LANGCHAIN_TRACING_V2=true,LANGCHAIN_PROJECT=structureiq,ENVIRONMENT=production,MAX_FILE_SIZE_MB=100,CHUNK_SIZE=1000,CHUNK_OVERLAP=200,RETRIEVAL_TOP_K_DOCS=5,RETRIEVAL_TOP_K_STANDARDS=3,CONFIDENCE_THRESHOLD=0.75'
+      - '--set-secrets=GOOGLE_API_KEY=google-api-key:latest,LANGCHAIN_API_KEY=langsmith-api-key:latest'
+
+images:
+  - 'gcr.io/$PROJECT_ID/structureiq-backend'
+
+options:
+  logging: CLOUD_LOGGING_ONLY

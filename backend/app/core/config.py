@@ -8,7 +8,11 @@ class Settings(BaseSettings):
     google_cloud_project: str = "structureiq"
     google_application_credentials: str = "./credentials.json"
     gcs_bucket_name: str = "structureiq-docs"
-    vertex_location: str = "us-east1"
+    vertex_location: str = "us-east1"   # Vector Search region
+    gemini_location: str = "global"  # LLM generation endpoint
+    gemini_model: str = "gemini-2.5-flash"
+    gemini_fallback_model: str = "gemini-2.5-flash-lite"
+    gemini_max_retries: int = 3
 
     vertex_standards_index_id: str = ""
     vertex_documents_index_id: str = ""

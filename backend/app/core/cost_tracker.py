@@ -1,7 +1,7 @@
 from dataclasses import dataclass, field
 from threading import Lock
 
-# Gemini 1.5 Pro pricing
+# Gemini 2.0 Flash pricing
 _INPUT_COST_PER_M = 1.25
 _OUTPUT_COST_PER_M = 5.00
 
