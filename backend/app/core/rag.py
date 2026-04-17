@@ -181,6 +181,13 @@ def _generate_with_retry(
                     time.sleep(2 ** attempt)
                     continue
                 break
+            except Exception as exc:
+                # Catch non-ClientError transient errors (e.g. google.api_core exceptions)
+                last_429 = exc  # type: ignore[assignment]
+                if attempt < settings.gemini_max_retries - 1:
+                    time.sleep(2 ** attempt)
+                    continue
+                break
 
     raise RuntimeError(
         "Vertex Gemini is temporarily out of capacity for this request after multiple retries. "

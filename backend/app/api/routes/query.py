@@ -29,6 +29,11 @@ async def query_document(request: QueryRequest) -> QueryResponse:
             status_code=503,
             detail="Vertex Gemini is temporarily unavailable. Please try again in a moment.",
         ) from exc
+    except Exception as exc:
+        raise HTTPException(
+            status_code=503,
+            detail="Vertex Gemini is temporarily unavailable. Please try again in a moment.",
+        ) from exc
 
     return QueryResponse(
         answer=result["answer"],
