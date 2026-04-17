@@ -10,8 +10,12 @@ from app.core.cost_tracker import session_total_tokens, session_total_cost, rese
 
 settings = get_settings()
 
-# Set GCP credentials path before any GCP clients initialize
-if settings.google_application_credentials:
+# Prefer an explicit credentials file locally, but let Cloud Run use ADC via
+# the attached service account when no file is present in the container.
+if (
+    settings.google_application_credentials
+    and os.path.exists(settings.google_application_credentials)
+):
     os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = settings.google_application_credentials
 
 _MAX_BODY_BYTES = 100 * 1024 * 1024  # 100 MB

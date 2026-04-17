@@ -51,8 +51,10 @@ Run this checklist before every production deploy. Check each item before procee
 
 ### Environment Variables (set in Vercel project settings, NOT in `.env.local`)
 - [x] `NEXT_PUBLIC_API_URL=https://structureiq-backend-eyyi6tggvq-ue.a.run.app`
+- [x] `NEXT_PUBLIC_MAX_UPLOAD_MB=32`
 
 > ⚠️ `.env.local` points to `localhost:8000` for local dev — Vercel must have its own env var set in the dashboard or via `vercel env add`, otherwise the deployed frontend calls localhost and fails with "Failed to fetch".
+> ⚠️ Direct Cloud Run uploads hit an ingress ceiling around 32 MB, so the hosted frontend should not advertise the local 100 MB limit.
 
 ### Build
 - [x] No unused imports (ESLint strict — will fail build if present)

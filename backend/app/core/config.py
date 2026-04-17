@@ -6,7 +6,7 @@ class Settings(BaseSettings):
     model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8", extra="ignore")
 
     google_cloud_project: str = "structureiq"
-    google_application_credentials: str = "./credentials.json"
+    google_application_credentials: str = ""
     gcs_bucket_name: str = "structureiq-docs"
     vertex_location: str = "us-east1"   # Vector Search region
     gemini_location: str = "global"  # LLM generation endpoint

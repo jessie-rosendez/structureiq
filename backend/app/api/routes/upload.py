@@ -52,10 +52,19 @@ async def upload_document(file: UploadFile = File(...)) -> UploadResponse:
     gcs_blob_name = f"uploads/{document_id}{ext}"
 
     # Upload to GCS
-    gcs_client = storage.Client(project=settings.google_cloud_project)
-    bucket = gcs_client.bucket(settings.gcs_bucket_name)
-    blob = bucket.blob(gcs_blob_name)
-    blob.upload_from_string(file_bytes, content_type=content_type)
+    try:
+        gcs_client = storage.Client(project=settings.google_cloud_project)
+        bucket = gcs_client.bucket(settings.gcs_bucket_name)
+        blob = bucket.blob(gcs_blob_name)
+        blob.upload_from_string(file_bytes, content_type=content_type)
+    except Exception as e:
+        raise HTTPException(
+            status_code=502,
+            detail=(
+                "Storage upload failed. Check GCS permissions, service-account credentials, "
+                f"and backend configuration. Underlying error: {e}"
+            ),
+        )
 
     if content_type != "application/pdf":
         # Image upload — no text chunking, store reference for vision
@@ -89,12 +98,21 @@ async def upload_document(file: UploadFile = File(...)) -> UploadResponse:
     if not chunks:
         raise HTTPException(status_code=422, detail="No extractable text found in PDF.")
 
-    init_vertex(settings.google_cloud_project, settings.vertex_location)
-    texts = [c["text"] for c in chunks]
-    embeddings = embed_texts(texts, batch_size=5)
+    try:
+        init_vertex(settings.google_cloud_project, settings.vertex_location)
+        texts = [c["text"] for c in chunks]
+        embeddings = embed_texts(texts, batch_size=5)
 
-    # Upsert to documents index
-    _upsert_document_chunks(document_id, chunks, embeddings, settings)
+        # Upsert to documents index
+        _upsert_document_chunks(document_id, chunks, embeddings, settings)
+    except Exception as e:
+        raise HTTPException(
+            status_code=502,
+            detail=(
+                "Document indexing failed. Check Vertex AI permissions, index deployment, "
+                f"and backend configuration. Underlying error: {e}"
+            ),
+        )
 
     # Cache chunks for fast lookup in this session
     _document_registry[document_id] = {
