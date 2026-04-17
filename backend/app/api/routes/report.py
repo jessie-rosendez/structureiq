@@ -17,55 +17,90 @@ router = APIRouter()
 REPORT_QUERIES = [
     {
         "standard": "ADA Standards 2010",
+        "standard_group": "ADA",
         "section": "206.2",
         "query": "Does this document specify accessible routes, entrances, parking spaces, and ramp slopes meeting ADA requirements?",
     },
     {
         "standard": "ADA Standards 2010",
+        "standard_group": "ADA",
         "section": "604",
         "query": "Does this document address accessible restroom requirements including grab bars, toilet clearance, and lavatory height?",
     },
     {
         "standard": "OSHA 1926",
+        "standard_group": "OSHA",
         "section": "1926.502",
         "query": "Does this document address fall protection measures including guardrail heights, personal fall arrest systems, and safety nets?",
     },
     {
         "standard": "OSHA 1926",
+        "standard_group": "OSHA",
         "section": "1926.451",
         "query": "Does this document specify scaffolding requirements including load capacity, platform width, and fall protection?",
     },
     {
         "standard": "IBC 2021",
+        "standard_group": "IBC",
         "section": "903",
         "query": "Does this document specify automatic fire sprinkler systems and does the design comply with NFPA 13 requirements?",
     },
     {
         "standard": "IBC 2021",
+        "standard_group": "IBC",
         "section": "1011",
         "query": "Does this document address stairway requirements including riser heights, tread depth, handrails, and exit enclosures?",
     },
     {
         "standard": "IBC 2021",
+        "standard_group": "IBC",
         "section": "1006",
         "query": "Does this document specify means of egress including number of exits and exit access travel distances?",
     },
     {
         "standard": "ASHRAE 90.1-2019",
+        "standard_group": "ASHRAE",
         "section": "5.4.3",
         "query": "Does this document specify wall insulation R-values and do they meet ASHRAE 90.1 minimums for the applicable climate zone?",
     },
     {
         "standard": "ASHRAE 90.1-2019",
+        "standard_group": "ASHRAE",
         "section": "5.5.3",
         "query": "Does this document specify roof insulation R-values and do they meet ASHRAE 90.1 minimums?",
     },
     {
         "standard": "ASHRAE 90.1-2019",
+        "standard_group": "ASHRAE",
         "section": "9.4.1",
         "query": "Does this document address lighting power density and automatic shutoff controls per ASHRAE 90.1?",
     },
 ]
+
+_OSHA_KEYWORDS = {
+    "fall protection", "scaffold", "excavat", "trenching", "crane", "rigging",
+    "construction site", "site safety", "safety harness", "hard hat", "guardrail",
+    "personal fall", "fall arrest", "safety net", "ladder safety",
+}
+_ASHRAE_KEYWORDS = {
+    "insulation", "r-value", "hvac", "energy efficiency", "lighting power",
+    "building envelope", "cooling load", "heating load", "thermal resistance",
+    "fenestration", "climate zone", "energy code", "mechanical system",
+    "air barrier", "vapor retarder",
+}
+
+
+def _detect_applicable_standards(doc: dict) -> set[str]:
+    """Scan document chunks for keywords to determine which standards apply."""
+    chunks = doc.get("chunks", [])
+    full_text = " ".join(c.get("text", "") for c in chunks).lower()
+
+    applicable = {"ADA", "IBC"}  # always check ADA and IBC
+    if any(kw in full_text for kw in _OSHA_KEYWORDS):
+        applicable.add("OSHA")
+    if any(kw in full_text for kw in _ASHRAE_KEYWORDS):
+        applicable.add("ASHRAE")
+    return applicable
 
 STATUS_RISK_WEIGHT = {
     "FAILS": 3,
@@ -104,10 +139,13 @@ async def generate_report(document_id: str) -> ComplianceReport:
             detail="Full compliance reports are only available for PDF documents.",
         )
 
+    applicable = _detect_applicable_standards(doc)
+    queries = [q for q in REPORT_QUERIES if q["standard_group"] in applicable]
+
     categories: list[ReportCategory] = []
     report_cost = 0.0
 
-    for query_spec in REPORT_QUERIES:
+    for query_spec in queries:
         try:
             result = run_two_layer_rag(
                 question=query_spec["query"],
@@ -123,7 +161,7 @@ async def generate_report(document_id: str) -> ComplianceReport:
                     standard=query_spec["standard"],
                     section=query_spec["section"],
                     status=status,
-                    finding=result.get("answer", "")[:500],
+                    finding=result.get("answer", ""),
                     document_citation=doc_citations[0] if doc_citations else "Not found in document",
                     standard_citation=std_citations[0] if std_citations else query_spec["standard"],
                     confidence=result.get("confidence", "LOW"),
@@ -145,6 +183,7 @@ async def generate_report(document_id: str) -> ComplianceReport:
 
     overall_risk = _compute_overall_risk(categories)
 
+    standards_run = sorted(applicable)
     return ComplianceReport(
         document_name=doc.get("filename", "Unknown"),
         document_id=document_id,
@@ -153,4 +192,5 @@ async def generate_report(document_id: str) -> ComplianceReport:
         categories=categories,
         total_cost_usd=round(report_cost, 6),
         session_total_cost_usd=session_total_cost(),
+        standards_checked=standards_run,
     )

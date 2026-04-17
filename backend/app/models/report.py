@@ -20,3 +20,4 @@ class ComplianceReport(BaseModel):
     categories: list[ReportCategory]
     total_cost_usd: float
     session_total_cost_usd: float
+    standards_checked: list[str] = []
