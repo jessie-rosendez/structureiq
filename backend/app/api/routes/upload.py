@@ -28,7 +28,7 @@ def _write_doc_metadata(document_id: str, meta: dict[str, Any]) -> None:
         client = storage.Client(project=settings.google_cloud_project)
         bucket = client.bucket(settings.gcs_bucket_name)
         blob = bucket.blob(f"metadata/{document_id}.json")
-        payload = {k: v for k, v in meta.items() if k not in ("chunks", "embeddings")}
+        payload = {k: v for k, v in meta.items() if k != "embeddings"}
         blob.upload_from_string(json.dumps(payload), content_type="application/json")
     except Exception:
         pass  # non-fatal — memory cache still works on same instance

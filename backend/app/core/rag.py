@@ -53,9 +53,11 @@ Return structured JSON only:
 
 
 def _query_document_layer(
-    query_text: str, document_index_id: str, top_k: int
+    query_text: str, document_session_id: str, top_k: int
 ) -> list[dict[str, Any]]:
-    """Retrieve top-K chunks from the user's uploaded document index."""
+    """Retrieve top-K chunks from this document, hydrated with text from GCS."""
+    from app.api.routes.upload import get_document
+
     settings = get_settings()
     query_embedding = embed_single(query_text)
 
@@ -64,24 +66,45 @@ def _query_document_layer(
     )
 
     try:
+        # Over-fetch so we have enough after filtering to this document
         response = endpoint.find_neighbors(
             deployed_index_id=settings.vertex_documents_deployed_index_id,
             queries=[query_embedding],
-            num_neighbors=top_k,
+            num_neighbors=top_k * 4,
         )
-        results = []
-        for neighbor in response[0]:
-            results.append(
-                {
-                    "id": neighbor.id,
-                    "score": neighbor.distance,
-                    "metadata": {},
-                }
-            )
-        return results
+        prefix = f"{document_session_id}__chunk_"
+        neighbors = [n for n in response[0] if n.id.startswith(prefix)][:top_k]
     except Exception:
-        # Document may not yet be indexed; return empty
         return []
+
+    if not neighbors:
+        return []
+
+    # Hydrate with chunk text — check memory cache first, then GCS
+    doc = get_document(document_session_id)
+    chunks: list[dict[str, Any]] = doc.get("chunks", []) if doc else []
+    chunk_by_index: dict[int, dict[str, Any]] = {i: c for i, c in enumerate(chunks)}
+
+    results = []
+    for neighbor in neighbors:
+        try:
+            idx = int(neighbor.id.split("__chunk_")[-1])
+            chunk = chunk_by_index.get(idx, {})
+        except (ValueError, IndexError):
+            chunk = {}
+        results.append(
+            {
+                "id": neighbor.id,
+                "text": chunk.get("text", ""),
+                "page": chunk.get("page", "?"),
+                "score": neighbor.distance,
+                "metadata": {
+                    "page": [str(chunk.get("page", "?"))],
+                    "document_id": [document_session_id],
+                },
+            }
+        )
+    return results
 
 
 def _format_document_context(doc_chunks: list[dict[str, Any]]) -> str:
