@@ -55,35 +55,54 @@ Return structured JSON only:
 def _query_document_layer(
     query_text: str, document_session_id: str, top_k: int
 ) -> list[dict[str, Any]]:
-    """Retrieve top-K chunks from this document, hydrated with text from GCS."""
+    """Retrieve top-K relevant chunks from this document, hydrated with text."""
     from app.api.routes.upload import get_document
+    from google.cloud.aiplatform.matching_engine import matching_engine_index_endpoint as _mee
 
     settings = get_settings()
-    query_embedding = embed_single(query_text)
 
+    # Hydration source — memory cache first, then GCS
+    doc = get_document(document_session_id)
+    chunks: list[dict[str, Any]] = doc.get("chunks", []) if doc else []
+    chunk_by_index: dict[int, dict[str, Any]] = {i: c for i, c in enumerate(chunks)}
+
+    query_embedding = embed_single(query_text)
     endpoint = MatchingEngineIndexEndpoint(
         index_endpoint_name=settings.documents_endpoint_resource_name
     )
 
+    neighbors = []
     try:
-        # Over-fetch so we have enough after filtering to this document
+        # Server-side restriction filter: only return datapoints for this document
+        ns_filter = [
+            _mee.Namespace(
+                name="document_id",
+                allow_tokens=[document_session_id],
+                deny_tokens=[],
+            )
+        ]
         response = endpoint.find_neighbors(
             deployed_index_id=settings.vertex_documents_deployed_index_id,
             queries=[query_embedding],
-            num_neighbors=top_k * 4,
+            num_neighbors=top_k,
+            filter=ns_filter,
         )
-        prefix = f"{document_session_id}__chunk_"
-        neighbors = [n for n in response[0] if n.id.startswith(prefix)][:top_k]
+        neighbors = response[0] if response else []
     except Exception:
-        return []
+        pass
 
-    if not neighbors:
-        return []
-
-    # Hydrate with chunk text — check memory cache first, then GCS
-    doc = get_document(document_session_id)
-    chunks: list[dict[str, Any]] = doc.get("chunks", []) if doc else []
-    chunk_by_index: dict[int, dict[str, Any]] = {i: c for i, c in enumerate(chunks)}
+    # GCS fallback: if Vertex returned nothing, serve chunks directly by score 1.0
+    if not neighbors and chunks:
+        return [
+            {
+                "id": f"{document_session_id}__chunk_{i}",
+                "text": c["text"],
+                "page": c["page"],
+                "score": 1.0,
+                "metadata": {"page": [str(c["page"])], "document_id": [document_session_id]},
+            }
+            for i, c in enumerate(chunks[:top_k])
+        ]
 
     results = []
     for neighbor in neighbors:
