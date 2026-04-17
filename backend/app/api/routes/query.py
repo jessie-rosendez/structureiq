@@ -17,27 +17,10 @@ async def query_document(request: QueryRequest) -> QueryResponse:
             detail=f"Document {request.document_id} not found. Upload a document first.",
         )
 
-    # Pass cached chunks directly to avoid redundant Vertex retrieval in same session
-    cached_chunks = []
-    if doc.get("type") == "pdf" and doc.get("chunks"):
-        raw_chunks = doc["chunks"]
-        embeddings = doc.get("embeddings", [])
-        # We pass cached chunks directly; rag.py accepts override
-        for i, chunk in enumerate(raw_chunks):
-            cached_chunks.append(
-                {
-                    "text": chunk["text"],
-                    "page": chunk["page"],
-                    "score": 1.0,  # local cache = fully relevant
-                    "metadata": {"page": [str(chunk["page"])], "document_id": [request.document_id]},
-                }
-            )
-
     try:
         result = run_two_layer_rag(
             question=request.question,
             document_session_id=request.document_id,
-            document_chunks_override=cached_chunks if cached_chunks else None,
         )
     except RuntimeError as exc:
         raise HTTPException(status_code=502, detail=str(exc)) from exc

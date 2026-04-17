@@ -104,46 +104,44 @@ async def generate_report(document_id: str) -> ComplianceReport:
             detail="Full compliance reports are only available for PDF documents.",
         )
 
-    cached_chunks = [
-        {
-            "text": c["text"],
-            "page": c["page"],
-            "score": 1.0,
-            "metadata": {"page": [str(c["page"])], "document_id": [document_id]},
-        }
-        for c in doc.get("chunks", [])
-    ]
-
     categories: list[ReportCategory] = []
     report_cost = 0.0
 
     for query_spec in REPORT_QUERIES:
-        result = run_two_layer_rag(
-            question=query_spec["query"],
-            document_session_id=document_id,
-            document_chunks_override=cached_chunks or None,
-        )
-
-        # Map compliance_status → report status
-        status = result.get("compliance_status", "INSUFFICIENT_DATA")
-        if status not in ("MEETS", "PARTIALLY_MEETS", "FAILS", "INSUFFICIENT_DATA"):
-            status = "FLAG"
-
-        doc_citations = result.get("document_citations", [])
-        std_citations = result.get("standard_citations", [])
-
-        categories.append(
-            ReportCategory(
-                standard=query_spec["standard"],
-                section=query_spec["section"],
-                status=status,
-                finding=result.get("answer", "")[:500],
-                document_citation=doc_citations[0] if doc_citations else "Not found in document",
-                standard_citation=std_citations[0] if std_citations else query_spec["standard"],
-                confidence=result.get("confidence", "LOW"),
+        try:
+            result = run_two_layer_rag(
+                question=query_spec["query"],
+                document_session_id=document_id,
             )
-        )
-        report_cost += result.get("cost_usd", 0.0)
+            status = result.get("compliance_status", "INSUFFICIENT_DATA")
+            if status not in ("MEETS", "PARTIALLY_MEETS", "FAILS", "INSUFFICIENT_DATA"):
+                status = "FLAG"
+            doc_citations = result.get("document_citations", [])
+            std_citations = result.get("standard_citations", [])
+            categories.append(
+                ReportCategory(
+                    standard=query_spec["standard"],
+                    section=query_spec["section"],
+                    status=status,
+                    finding=result.get("answer", "")[:500],
+                    document_citation=doc_citations[0] if doc_citations else "Not found in document",
+                    standard_citation=std_citations[0] if std_citations else query_spec["standard"],
+                    confidence=result.get("confidence", "LOW"),
+                )
+            )
+            report_cost += result.get("cost_usd", 0.0)
+        except Exception:
+            categories.append(
+                ReportCategory(
+                    standard=query_spec["standard"],
+                    section=query_spec["section"],
+                    status="INSUFFICIENT_DATA",
+                    finding="Analysis unavailable — Gemini returned a transient error for this check.",
+                    document_citation="Not found in document",
+                    standard_citation=query_spec["standard"],
+                    confidence="LOW",
+                )
+            )
 
     overall_risk = _compute_overall_risk(categories)
 
