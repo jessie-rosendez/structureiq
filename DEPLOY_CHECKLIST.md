@@ -83,7 +83,7 @@ npx vercel --prod
 
 ## Verified Live URLs
 - **Backend:** https://structureiq-backend-eyyi6tggvq-ue.a.run.app
-- **Frontend:** https://frontend-7kn1e49h0-jessie-rosendezs-projects.vercel.app
+- **Frontend:** https://frontend-phi-five-58.vercel.app
 - **Health check:** `curl https://structureiq-backend-eyyi6tggvq-ue.a.run.app/health`
 
 ---

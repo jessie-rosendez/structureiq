@@ -1,107 +1,93 @@
 # StructureIQ Build Progress
 
-## Status: IN PROGRESS
-## Last Updated: 2026-04-17T02:00:00Z
-## Last Completed Step: New stream_update indexes created; waiting on provisioning
-## Currently Working On: Waiting — Vertex AI index provisioning
-## Next Step: When both index ops return done:true → deploy to endpoints → run ingest_standards.py → pip install → start server
+## Status: LIVE IN PRODUCTION
+## Last Updated: 2026-04-17T07:10:00Z
+## Current State: End-to-end working — upload → query → full compliance report on production URLs
+
+---
+
+## Live URLs
+
+| Service | URL |
+|---|---|
+| Frontend | https://frontend-phi-five-58.vercel.app |
+| Backend | https://structureiq-backend-eyyi6tggvq-ue.a.run.app |
+| Health check | `curl https://structureiq-backend-eyyi6tggvq-ue.a.run.app/health` |
+
+---
 
 ## Completed Steps
+
 - [x] GCP APIs enabled
-- [x] Bucket gs://structureiq-docs created
-- [x] Service account structureiq-sa created
-- [x] IAM roles granted
-- [x] credentials.json moved to backend/credentials.json
-- [x] GCP infrastructure scripts written (enable_apis.sh, create_bucket.sh, create_service_account.sh, create_vector_indexes.sh)
-- [x] .gitignore created (credentials.json listed)
-- [x] .env.example created
-- [x] Standards index endpoint — ID: 7384130976143638528 (us-east1, reused)
-- [x] Documents index endpoint — ID: 4713496397112934400 (us-east1, reused)
-- [x] Vertex AI standards index (stream_update) — ID: 5863849442557296640 (us-east1)
-- [x] Vertex AI documents index (stream_update) — ID: 8407961019556560896 (us-east1)
-- [x] .env updated with new stream_update index IDs
+- [x] Bucket `gs://structureiq-docs` created
+- [x] Service account `structureiq-sa@structureiq.iam.gserviceaccount.com` created with all required IAM roles
+- [x] `credentials.json` gitignored, excluded from Docker image via `.dockerignore`
+- [x] GCP infrastructure scripts written (`enable_apis.sh`, `create_bucket.sh`, `create_service_account.sh`, `create_vector_indexes.sh`)
+- [x] Vertex AI standards index (stream_update) — ID: `5863849442557296640` (us-east1)
+- [x] Vertex AI documents index (stream_update) — ID: `8407961019556560896` (us-east1)
+- [x] Standards index endpoint — ID: `7384130976143638528` (us-east1), deployed index: `standards_v2`
+- [x] Documents index endpoint — ID: `4713496397112934400` (us-east1), deployed index: `documents_v2`
+- [x] Standards KB ingested (`scripts/ingest_standards.py`) — ADA, OSHA 1926, IBC 2021, ASHRAE 90.1
+- [x] Backend core built (config, pdf_parser, cost_tracker, guardrails, compliance, rag, vision)
+- [x] API routes built (health, upload, query, report)
+- [x] `requirements.txt` + `Dockerfile` written
+- [x] Frontend built (Next.js 14, TypeScript, Tailwind) — upload, query, report pages
+- [x] Cloud Build trigger (`structureiq-main-deploy`) — auto-deploys backend on every push to `main`
+- [x] Backend deployed to Cloud Run — revision `structureiq-backend-00007-2s9`, image `2a71e90`
+- [x] Frontend deployed to Vercel — `frontend-phi-five-58.vercel.app`
+- [x] `NEXT_PUBLIC_API_URL` set in Vercel dashboard and baked into production build
+- [x] End-to-end verified in production: upload PDF → query → full 10-standard compliance report
 
-## Pending Steps
-- [ ] WAIT: Vertex AI indexes still provisioning (30-60 min from ~00:06 UTC) — deploy indexes to endpoints after provisioning
-- [x] Build standards JSON files (ADA, OSHA, IBC lite, ASHRAE lite)
-- [x] app/ingestion/embedder.py built
-- [x] scripts/ingest_standards.py built
-- [ ] Run ingest_standards.py (blocked until Vertex AI indexes finish provisioning ~00:36-01:06 UTC)
-- [x] Build backend core (config, pdf_parser, cost_tracker, guardrails, compliance, rag, vision)
-- [x] Build API routes (health, upload, query, report, main)
-- [x] requirements.txt + Dockerfile written
-- [x] Build frontend (Next.js 14, TypeScript, Tailwind, shadcn/ui) — 0 TypeScript errors
-- [ ] Deploy backend to Cloud Run (command below)
-- [ ] Deploy frontend to Vercel
+---
 
-## Cloud Run Deploy Command
-```bash
-gcloud builds submit --tag gcr.io/structureiq/structureiq-backend
+## Architecture
 
-gcloud run deploy structureiq-backend \
-  --image gcr.io/structureiq/structureiq-backend \
-  --platform managed \
-  --region us-east1 \
-  --allow-unauthenticated \
-  --memory 2Gi \
-  --cpu 2 \
-  --timeout 300 \
-  --max-instances 10 \
-  --set-env-vars GOOGLE_CLOUD_PROJECT=structureiq,GCS_BUCKET_NAME=structureiq-docs,VERTEX_LOCATION=us-east1,LANGCHAIN_TRACING_V2=true,LANGCHAIN_PROJECT=structureiq \
-  --set-secrets GOOGLE_API_KEY=google-api-key:latest,LANGCHAIN_API_KEY=langsmith-api-key:latest
-```
-Notes:
-- `--max-instances=10` caps concurrent instances to control cost; increase for production load
-- `--timeout 300` is required for PDF parsing + multi-query report generation (can hit 60-90s)
-- `--memory 2Gi` is required — PDF parsing with PyMuPDF is memory intensive, do not reduce
-- Large file uploads (up to 100 MB) are handled at the app layer via BodySizeLimitMiddleware; Cloud Run's default ingress accepts up to 32 MB per request body — for production 100 MB uploads, front with a Cloud Load Balancer or upload directly to GCS via signed URL
+- **Two-layer RAG:** Vertex AI Vector Search (document chunks + standards KB) → Gemini synthesis
+- **Model:** `gemini-2.5-flash` via `google-genai` SDK with `vertexai=True`, location `global`
+- **Embedding:** `text-embedding-004` via Vertex AI
+- **Storage:** GCS `structureiq-docs` bucket for uploaded PDFs
+- **Auth on Cloud Run:** ADC via attached `structureiq-sa` service account (no credentials file needed)
+- **Secrets:** `GOOGLE_API_KEY`, `LANGCHAIN_API_KEY` via GCP Secret Manager
 
-## Vertex AI Deploy Operations (us-east1) — CURRENT
+---
 
-Indexes deployed to endpoints with IDs `standards_v2` / `documents_v2`. Check deploy status:
+## Deployment Flow
 
-```bash
-export PATH="$PATH:$HOME/Downloads/google-cloud-sdk/bin"
+Every `git push origin main` auto-triggers Cloud Build → builds Docker image tagged with `$COMMIT_SHA` → pushes to `gcr.io/structureiq/structureiq-backend` → deploys to Cloud Run.
 
-# Standards deploy → endpoint 7384130976143638528
-gcloud ai operations describe 3685175467175837696 \
-  --index-endpoint=7384130976143638528 \
-  --region=us-east1 --project=structureiq
-
-# Documents deploy → endpoint 4713496397112934400
-gcloud ai operations describe 8491642169486999552 \
-  --index-endpoint=4713496397112934400 \
-  --region=us-east1 --project=structureiq
-```
-
-When both return `"done": true` with no error field → run `python scripts/ingest_standards.py`.
-
-## Blockers
-- Vertex AI index deploy operations must complete before ingest_standards.py will work
-- Cloud Run has a 32 MB default request body limit — 100 MB uploads require a Cloud Load Balancer or direct-to-GCS signed URL flow for production (current app middleware enforces the limit but payloads may be rejected at the Cloud Run ingress layer before reaching the app)
-
-## Future State & Vision
-
-See [ROADMAP.md](./ROADMAP.md) for the full product roadmap.
-
-**v1.1 — Immediate Post-MVP:** Signed URL uploads (bypass Cloud Run 32 MB limit), Google OAuth, document history per user.
-
-**v2.0 — Short Term:** Real-time collaboration, custom standards upload, webhook notifications, API access for third-party integrations.
-
-**v3.0 — Long Term:** Computer vision on job site photos (OSHA auto-detection), Procore/Autodesk/Bluebeam integrations, continuous monitoring when standards update, multi-language support, mobile app for field inspectors.
+Frontend: manual `npx vercel --prod` from `frontend/` directory (auto-deploy not yet configured).
 
 ---
 
 ## Known Gotchas
 
-- **CRITICAL — stream_update required:** Vertex AI Vector Search indexes MUST be created with `--index-update-method=stream_update`. Using `batch_update` (the default) makes `upsert_datapoints()` silently fail or error — real-time document ingestion breaks entirely. Always verify with `gcloud ai indexes describe <ID> --region=us-east1` and confirm `indexUpdateMethod: STREAM_UPDATE` before deploying.
-- **Cloud Run 32 MB ingress limit:** Cloud Run rejects request bodies over 32 MB before they reach the app. The `BodySizeLimitMiddleware` in `main.py` handles the app-level 100 MB check, but for true large-file support use GCS signed URLs (v1.1 roadmap item).
-- **Index provisioning time:** New indexes take 30–60 min to provision even when empty. Deploy-to-endpoint operations take another 15–30 min after that. Plan accordingly — do not assume an index is ready just because the create command returned.
+- **CRITICAL — stream_update required:** Vertex AI indexes MUST use `--index-update-method=stream_update`. `batch_update` makes `upsert_datapoints()` silently fail.
+- **Cloud Run 32 MB ingress limit:** Cloud Run rejects bodies over 32 MB before reaching the app. Frontend advertises 32 MB cap. True large-file support requires GCS signed URLs (v1.1 roadmap).
+- **NEXT_PUBLIC_* vars baked at build time:** Setting them in Vercel dashboard requires a redeploy — they are not picked up at runtime.
+- **Index provisioning time:** New indexes take 30–60 min to provision + 15–30 min to deploy to endpoint.
+- **pydantic-settings env_file:** `config.py` only reads `.env` if the file exists at startup — prevents local dev config from leaking into the container if `.dockerignore` ever fails.
+- **gcloud location:** `~/Downloads/google-cloud-sdk/bin/gcloud`
 
-## Notes
-- gcloud is at ~/Downloads/google-cloud-sdk/bin
-- GCP project: structureiq, number: 381539677677
-- Bucket gs://structureiq-docs already created
-- Service account: structureiq-sa@structureiq.iam.gserviceaccount.com
-- credentials.json is at backend/credentials.json (gitignored)
-- Region: us-east1 (updated from us-central1)
+---
+
+## GCP Reference
+
+| Resource | Value |
+|---|---|
+| Project | `structureiq` |
+| Project number | `381539677677` |
+| Region | `us-east1` |
+| Bucket | `gs://structureiq-docs` |
+| Service account | `structureiq-sa@structureiq.iam.gserviceaccount.com` |
+| Cloud Run service | `structureiq-backend` |
+| Cloud Build trigger | `structureiq-main-deploy` (global, watches `main`) |
+
+---
+
+## Future State
+
+See [ROADMAP.md](./ROADMAP.md) for the full product roadmap.
+
+**v1.1:** Signed URL uploads (bypass 32 MB limit), Google OAuth, document history per user.
+**v2.0:** Real-time collaboration, custom standards upload, webhook notifications, API access.
+**v3.0:** Computer vision on job site photos, Procore/Autodesk integrations, continuous monitoring, mobile app.
