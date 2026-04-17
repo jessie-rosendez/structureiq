@@ -23,30 +23,32 @@ def query_standards(query_text: str, top_k: int | None = None) -> list[dict[str,
     if top_k is None:
         top_k = settings.retrieval_top_k_standards
 
-    query_embedding = embed_single(query_text)
+    try:
+        query_embedding = embed_single(query_text)
 
-    endpoint = MatchingEngineIndexEndpoint(
-        index_endpoint_name=settings.standards_endpoint_resource_name
-    )
-
-    response = endpoint.find_neighbors(
-        deployed_index_id=settings.vertex_standards_deployed_index_id,
-        queries=[query_embedding],
-        num_neighbors=top_k,
-    )
-
-    results = []
-    for neighbor in response[0]:
-        results.append(
-            {
-                "id": neighbor.id,
-                "score": neighbor.distance,
-                "section_id": _extract_section_id(neighbor.id),
-                "metadata": {},
-            }
+        endpoint = MatchingEngineIndexEndpoint(
+            index_endpoint_name=settings.standards_endpoint_resource_name
         )
 
-    return results
+        response = endpoint.find_neighbors(
+            deployed_index_id=settings.vertex_standards_deployed_index_id,
+            queries=[query_embedding],
+            num_neighbors=top_k,
+        )
+
+        results = []
+        for neighbor in response[0]:
+            results.append(
+                {
+                    "id": neighbor.id,
+                    "score": neighbor.distance,
+                    "section_id": _extract_section_id(neighbor.id),
+                    "metadata": {},
+                }
+            )
+        return results
+    except Exception:
+        return []
 
 
 def _extract_section_id(datapoint_id: str) -> str:

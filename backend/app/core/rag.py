@@ -66,7 +66,26 @@ def _query_document_layer(
     chunks: list[dict[str, Any]] = doc.get("chunks", []) if doc else []
     chunk_by_index: dict[int, dict[str, Any]] = {i: c for i, c in enumerate(chunks)}
 
-    query_embedding = embed_single(query_text)
+    try:
+        query_embedding = embed_single(query_text)
+    except Exception:
+        query_embedding = None
+
+    if not query_embedding:
+        # Embedding failed — fall back to GCS chunks directly
+        if chunks:
+            return [
+                {
+                    "id": f"{document_session_id}__chunk_{i}",
+                    "text": c["text"],
+                    "page": c["page"],
+                    "score": 1.0,
+                    "metadata": {"page": [str(c["page"])], "document_id": [document_session_id]},
+                }
+                for i, c in enumerate(chunks[:top_k])
+            ]
+        return []
+
     endpoint = MatchingEngineIndexEndpoint(
         index_endpoint_name=settings.documents_endpoint_resource_name
     )
